@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Entity_Editor_dialog</class>
+ <widget class="QDialog" name="Entity_Editor_dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>492</width>
+    <height>304</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTableWidget" name="tableWidget">
+     <row>
+      <property name="text">
+       <string>New Row</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Signal Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Direction</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Width</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Comments</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
