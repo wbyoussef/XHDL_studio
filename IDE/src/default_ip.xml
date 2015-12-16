@@ -17,7 +17,7 @@
 <reference></reference>
 <comment>N/A</comment>
 </signal>
-<signal name="b">
+<signal name="THIS_IS_the_second_signal">
 <direction>IN</direction>
 <high_val>0</high_val>
 <low_val>0</low_val>

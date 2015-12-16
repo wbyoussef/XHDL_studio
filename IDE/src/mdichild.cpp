@@ -60,7 +60,7 @@ void MdiChild::newFile()
     main_ip->set_ip_name("new_ip");
     main_ip->setIp();
     this->entity_scene = new QEntityScene (main_ip);
-    (this->IPView)->setScene(entity_scene);
+    (this->getIPView())->setScene(entity_scene);
 }
 
 bool MdiChild::loadFile(const QString &fileName)
@@ -73,7 +73,8 @@ bool MdiChild::loadFile(const QString &fileName)
 
     // fill scenes
     this->entity_scene = new QEntityScene (main_ip);
-    (this->IPView)->setScene(entity_scene);
+    (this->getIPView())->setScene(entity_scene);
+    fill_description();
     return true;
 
 }
@@ -99,6 +100,49 @@ bool MdiChild::saveAs()
 
 bool MdiChild::saveFile(const QString &fileName)
 {
+}
+
+bool MdiChild::fill_description()
+{
+    //! fille IP namme
+    QTreeWidgetItem* item = new QTreeWidgetItem();
+    item->setText(0,QString ("General"));
+
+    QTreeWidgetItem* item_ipname = new QTreeWidgetItem();
+    item_ipname->setText(0,"name");
+    item_ipname->setText(1,this->main_ip->entity->name.c_str());
+    item->addChild(item_ipname);
+
+    QTreeWidgetItem* item_params = new QTreeWidgetItem();
+    item_params->setText(0,QString ("Parameters"));
+
+    for (int i =0; i<this->main_ip->entity->list_params.size();i++) {
+        QTreeWidgetItem* item_params_unit = new QTreeWidgetItem();
+        item_params_unit->setText(0, this->main_ip->entity->list_params.at(i).c_str());
+        item_params->addChild(item_params_unit);
+    }
+
+    QTreeWidgetItem* item_bus = new QTreeWidgetItem();
+    item_bus->setText(0,QString ("Interface"));
+
+    for (int i =0; i<this->main_ip->entity->list_bus.size();i++) {
+        QTreeWidgetItem* item_params_unit = new QTreeWidgetItem();
+        item_params_unit->setText(0, (this->main_ip->entity->list_bus.at(i)->name.c_str()));
+        item_bus->addChild(item_params_unit);
+    }
+
+    QTreeWidgetItem* item_clocks = new QTreeWidgetItem();
+    item_clocks->setText(0,"clocks");
+    QTreeWidgetItem* item_clock = new QTreeWidgetItem();
+    item_clock->setText(0,this->main_ip->entity->clk->name.c_str();
+    item_clocks->addChild(item_clock);
+
+    // item->set
+    this->m_ui->treeWidget_summary->addTopLevelItem(item);
+    this->m_ui->treeWidget_summary->addTopLevelItem(item_params);
+    this->m_ui->treeWidget_summary->addTopLevelItem(item_bus);
+    this->m_ui->treeWidget_summary->addTopLevelItem(item_clocks);
+
 }
 
 void MdiChild::closeEvent(QCloseEvent *event)

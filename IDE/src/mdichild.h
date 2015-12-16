@@ -63,6 +63,7 @@ public:
     bool saveAs();
     bool saveFile(const QString &fileName);
     QString currentFile() { return curFile; }
+    bool fill_description ();
 
 
 protected:

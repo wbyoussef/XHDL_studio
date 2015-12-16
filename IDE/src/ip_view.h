@@ -13,8 +13,14 @@ class IP_View : public QWidget {
 public:
     IP_View(QWidget *parent = 0);
     // canvas for displyaing items
-    QGraphicsView *IPView;
     ~IP_View();
+
+    QGraphicsView *getIPView() const;
+    void setIPView(QGraphicsView *value);
+
+private :
+    QGraphicsView *IPView;
+
 
 protected:
     void changeEvent(QEvent *e);

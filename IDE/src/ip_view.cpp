@@ -24,9 +24,19 @@ IP_View::IP_View(QWidget *parent) :
     connect(this, SIGNAL(resized()),this, SLOT (update_myview()));
     connect(this, SIGNAL(maximized()),this, SLOT (update_myview()));
     connect(this, SIGNAL(clicked()),this, SLOT (update_myview()));
-    this->m_ui->tableWidget->setAlternatingRowColors(true);
+    this->m_ui->tableWidget_signals->setAlternatingRowColors(true);
 
 }
+QGraphicsView *IP_View::getIPView() const
+{
+    return IPView;
+}
+
+void IP_View::setIPView(QGraphicsView *value)
+{
+    IPView = value;
+}
+
 
 IP_View::~IP_View()
 {
