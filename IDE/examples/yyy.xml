@@ -1,0 +1,94 @@
+<!DOCTYPE IP SYSTEM "dtd.dtd">
+<IP>
+<documentation></documentation>
+
+<version></version>
+
+<entity name="default_ip_name">
+<list_params></list_params><list_bus><signal name="A">
+<direction>IN</direction>
+<high_val>0</high_val>
+<low_val>0</low_val>
+<is_bit>TRUE</is_bit>
+<is_reset>FALSE</is_reset>
+<is_clock>FALSE</is_clock>
+<initial_val></initial_val>
+<is_flipflop>FALSE</is_flipflop>
+<reference></reference>
+<comment></comment>
+</signal>
+<signal name="B">
+<direction>IN</direction>
+<high_val>0</high_val>
+<low_val>0</low_val>
+<is_bit>TRUE</is_bit>
+<is_reset>FALSE</is_reset>
+<is_clock>FALSE</is_clock>
+<initial_val></initial_val>
+<is_flipflop>FALSE</is_flipflop>
+<reference></reference>
+<comment></comment>
+</signal>
+<signal name="C">
+<direction>OUT</direction>
+<high_val>0</high_val>
+<low_val>0</low_val>
+<is_bit>TRUE</is_bit>
+<is_reset>FALSE</is_reset>
+<is_clock>FALSE</is_clock>
+<initial_val></initial_val>
+<is_flipflop>FALSE</is_flipflop>
+<reference></reference>
+<comment></comment>
+</signal>
+</list_bus>
+</entity>
+
+
+<package name="default_ip_name">
+<list_bus></list_bus>
+</package>
+
+<list_arch>
+<arch name="rtl">
+<type>N/A</type>
+<list_enumtype></list_enumtype>
+<list_bus></list_bus>
+<body>
+
+
+<list_maps></list_maps>
+
+<list_stat></list_stat>
+
+<list_process><process>
+<comment>  </comment>
+<label>process1</label>
+<sens_list><sig_name>A</sig_name>
+<sig_name>B</sig_name>
+</sens_list>
+<list_intsructions><instruction>
+<sig_name>C</sig_name>
+<simple_instruction>
+<simple_instruction>
+<sig_name>A</sig_name>
+</simple_instruction>
+<op>OR</op>
+<simple_instruction>
+<sig_name>B</sig_name>
+</simple_instruction>
+</simple_instruction>
+</instruction>
+</list_intsructions>
+</process>
+</list_process>
+
+<list_plain></list_plain>
+
+
+</body>
+</arch>
+</list_arch>
+<project_man></project_man>
+</IP>
+

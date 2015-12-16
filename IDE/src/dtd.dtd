@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by WALID (N/A) -->
+<!--I P -->
+<!ELEMENT IP (documentation, version, entity, package, list_arch, project_man)>
+<!ELEMENT documentation (#PCDATA)>
+<!ELEMENT version (#PCDATA)>
+<!ELEMENT project_man (#PCDATA)>
+<!--project management-->
+<!--Entity -->
+<!ELEMENT entity (list_params?, list_bus)>
+<!ATTLIST entity
+	name NMTOKEN #REQUIRED
+>
+<!--Package-->
+<!ELEMENT package (list_bus)>
+<!ATTLIST package
+	name NMTOKEN #REQUIRED
+>
+<!--List of Bus-->
+<!ELEMENT list_params (param)*>
+<!ELEMENT list_bus (signal)*>
+<!ELEMENT param (#PCDATA)>
+<!--Signal-->
+<!ELEMENT signal (stype?, direction?, high_val?, low_val?, is_bit?, is_reset?, is_clock?, initial_val?, is_flipflop?, reset?, clock?, reference?, comment?)>
+<!ATTLIST signal
+	name NMTOKEN #REQUIRED
+>
+<!ELEMENT stype (#PCDATA)>
+<!-- used for enumerated type or predifined type -->
+<!ELEMENT direction (#PCDATA)>
+<!ELEMENT high_val (#PCDATA)>
+<!ELEMENT low_val (#PCDATA)>
+<!ELEMENT initial_val (#PCDATA)>
+<!ELEMENT is_bit (#PCDATA)>
+<!ELEMENT is_reset (#PCDATA)>
+<!ELEMENT is_clock (#PCDATA)>
+<!ELEMENT is_flipflop (#PCDATA)>
+<!ELEMENT reset (#PCDATA)>
+<!-- for flipflop signal-->
+<!ELEMENT clock (#PCDATA)>
+<!-- for flipflop signal -->
+<!ELEMENT reference (#PCDATA)>
+<!ELEMENT comment (#PCDATA)>
+<!--commentaire identique pour les autres elements-->
+<!--List of architectures -->
+<!ELEMENT list_arch (arch)*>
+<!--Architecture-->
+<!ELEMENT arch (type, list_enumtype?, list_bus?, body)>
+<!--entity de reference pour l'architecture-->
+<!ELEMENT type (#PCDATA)>
+<!ATTLIST arch
+	name NMTOKEN #REQUIRED
+>
+<!--list of enumerated types -->
+<!ELEMENT list_enumtype (enumtype)*>
+<!--Enumerate type-->
+<!ELEMENT enumtype (enumlist)>
+<!ELEMENT enumlist (id+)>
+<!ELEMENT id (#PCDATA)>
+<!ATTLIST enumtype
+	name NMTOKEN #REQUIRED
+>
+<!--Body of Architecture-->
+<!ELEMENT body (list_maps?, list_stat?, list_process?, list_plain?)>
+<!--List of Static-->
+<!ELEMENT list_stat (static)*>
+<!--Static assignement-->
+<!ELEMENT static (affect | if_gen | for_gen)>
+<!-- TODO : define : for_gen  -->
+<!--affectation instruction-->
+<!ELEMENT affect (output, input*, default_expr, cond_expr*, comment?)>
+<!ELEMENT default_expr (expr)>
+<!ELEMENT output (#PCDATA)>
+<!ELEMENT input (#PCDATA)>
+<!--Expression-->
+<!ELEMENT expr (sig_name | number | litteral | (op, expr) | (expr, op, expr))>
+<!ELEMENT cond (sig_name | number | litteral | (op, expr) | (expr, op, expr))>
+<!ELEMENT cond_expr (expr, cond)>
+<!ELEMENT number (#PCDATA)>
+<!ELEMENT litteral (#PCDATA)>
+<!ELEMENT op (#PCDATA)>
+<!--list of process-->
+<!ELEMENT list_process (process)*>
+<!--Process-->
+<!ELEMENT process (comment?, label, sens_list, declarations?, list_intsructions)>
+<!ELEMENT label (#PCDATA)>
+<!ELEMENT sens_list (sig_name)*>
+<!ELEMENT sig_name (#PCDATA)>
+<!ELEMENT declarations (signal)*>
+<!--list of instructions-->
+<!ELEMENT list_intsructions (instruction)*>
+<!ELEMENT instruction ((sig_name, simple_instruction) | conditional_inst)>
+<!ELEMENT simple_instruction ((simple_instruction, op, simple_instruction) | null | number | sig_name)>
+<!ELEMENT null (#PCDATA)>
+<!ELEMENT conditional_inst (condition, true_inst?, false_inst?)>
+<!ELEMENT true_inst (instruction)*>
+<!ELEMENT false_inst (instruction)*>
+<!ELEMENT condition (expr)>
+<!--sequential statement -->
+<!ELEMENT sequential (affect | if | case | for)>
+<!--IF instruction-->
+<!ELEMENT if ((cond, list_sequential)+, else?)>
+<!ELEMENT else (list_sequential)>
+<!--CASE instruction-->
+<!ELEMENT case (expr, (value, list_sequential)+, default?)>
+<!ELEMENT value (#PCDATA)>
+<!ELEMENT default (list_sequential)>
+<!--For  instruction-->
+<!ELEMENT for (param_name, range, list_sequential)>
+<!ELEMENT param_name (#PCDATA)>
+<!ELEMENT range (((low_val, high_val)) | litteral)>
+<!ATTLIST range
+	startfrom (high | low) "low"
+>
+<!--list of plain-->
+<!ELEMENT list_plain (plain)*>
+<!--plain text -->
+<!ELEMENT plain (langage, text)>
+<!ELEMENT langage (#PCDATA)>
+<!ELEMENT text (#PCDATA)>
+<!-- NB: all simple type are regroupped with there ancestors-->
+<!-- List of port mapping -->
+<!ELEMENT list_maps (port_map)*>
+<!-- List of port mapping -->
+<!ELEMENT port_map (label, component_name, list_connect)>
+<!--label already defined-->
+<!ELEMENT component_name (#PCDATA)>
+<!ELEMENT list_connect (connect)+>
+<!--list of connection -->
+<!ELEMENT connect (formal, actual)>
+<!--connection between formal signal of the componant and the actuan signal-->
+<!ELEMENT formal (#PCDATA)>
+<!ELEMENT actual (#PCDATA)>
