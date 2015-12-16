@@ -134,14 +134,25 @@ bool MdiChild::fill_description()
     QTreeWidgetItem* item_clocks = new QTreeWidgetItem();
     item_clocks->setText(0,"clocks");
     QTreeWidgetItem* item_clock = new QTreeWidgetItem();
-    item_clock->setText(0,this->main_ip->entity->clk->name.c_str();
+    item_clock->setText(0,this->main_ip->entity->clk->name.c_str());
     item_clocks->addChild(item_clock);
 
-    // item->set
+
+
+    QTreeWidgetItem* item_archs = new QTreeWidgetItem();
+    item_archs->setText(0,QString ("Architectures"));
+    for (int i =0; i<this->main_ip->list_arch.size();i++) {
+        QTreeWidgetItem* tmp_item = new QTreeWidgetItem();
+        tmp_item->setText(0, (this->main_ip->list_arch.at(i)->name.c_str()));
+        item_archs->addChild(tmp_item);
+    }
+
+    // add to tree
     this->m_ui->treeWidget_summary->addTopLevelItem(item);
     this->m_ui->treeWidget_summary->addTopLevelItem(item_params);
     this->m_ui->treeWidget_summary->addTopLevelItem(item_bus);
     this->m_ui->treeWidget_summary->addTopLevelItem(item_clocks);
+    this->m_ui->treeWidget_summary->addTopLevelItem(item_archs);
 
 }
 
