@@ -2,9 +2,9 @@
 #define XS_QTREEWIDGETITEM_H
 
 #include <QWidget>
+#include <QTreeWidgetItem>
 
-class XS_QTreeWidgetItem : public QTreeWidgetItem
-{
+class XS_QTreeWidgetItem : public QTreeWidgetItem {
 public:
     XS_QTreeWidgetItem();
 };
