@@ -46,6 +46,7 @@
 
 #include "XhdlEntity.h"
 #include "Xhdl_tcl_interface.h"
+#include "xs_qtreewidgetitem.h"
 
 MdiChild::MdiChild()
 {
@@ -105,44 +106,44 @@ bool MdiChild::saveFile(const QString &fileName)
 bool MdiChild::fill_description()
 {
     //! fille IP namme
-    QTreeWidgetItem* item = new QTreeWidgetItem();
+    XS_QTreeWidgetItem* item = new XS_QTreeWidgetItem();
     item->setText(0,QString ("General"));
 
-    QTreeWidgetItem* item_ipname = new QTreeWidgetItem();
+    XS_QTreeWidgetItem* item_ipname = new XS_QTreeWidgetItem();
     item_ipname->setText(0,"name");
     item_ipname->setText(1,this->main_ip->entity->name.c_str());
     item->addChild(item_ipname);
 
-    QTreeWidgetItem* item_params = new QTreeWidgetItem();
+    XS_QTreeWidgetItem* item_params = new XS_QTreeWidgetItem();
     item_params->setText(0,QString ("Parameters"));
 
     for (int i =0; i<this->main_ip->entity->list_params.size();i++) {
-        QTreeWidgetItem* item_params_unit = new QTreeWidgetItem();
+        XS_QTreeWidgetItem* item_params_unit = new XS_QTreeWidgetItem();
         item_params_unit->setText(0, this->main_ip->entity->list_params.at(i).c_str());
         item_params->addChild(item_params_unit);
     }
 
-    QTreeWidgetItem* item_bus = new QTreeWidgetItem();
+    XS_QTreeWidgetItem* item_bus = new XS_QTreeWidgetItem();
     item_bus->setText(0,QString ("Interface"));
 
     for (int i =0; i<this->main_ip->entity->list_bus.size();i++) {
-        QTreeWidgetItem* item_params_unit = new QTreeWidgetItem();
+        XS_QTreeWidgetItem* item_params_unit = new XS_QTreeWidgetItem();
         item_params_unit->setText(0, (this->main_ip->entity->list_bus.at(i)->name.c_str()));
         item_bus->addChild(item_params_unit);
     }
 
-    QTreeWidgetItem* item_clocks = new QTreeWidgetItem();
+    XS_QTreeWidgetItem* item_clocks = new XS_QTreeWidgetItem();
     item_clocks->setText(0,"clocks");
-    QTreeWidgetItem* item_clock = new QTreeWidgetItem();
+    XS_QTreeWidgetItem* item_clock = new XS_QTreeWidgetItem();
     item_clock->setText(0,this->main_ip->entity->clk->name.c_str());
     item_clocks->addChild(item_clock);
 
 
 
-    QTreeWidgetItem* item_archs = new QTreeWidgetItem();
+    XS_QTreeWidgetItem* item_archs = new XS_QTreeWidgetItem();
     item_archs->setText(0,QString ("Architectures"));
     for (int i =0; i<this->main_ip->list_arch.size();i++) {
-        QTreeWidgetItem* tmp_item = new QTreeWidgetItem();
+        XS_QTreeWidgetItem* tmp_item = new XS_QTreeWidgetItem();
         tmp_item->setText(0, (this->main_ip->list_arch.at(i)->name.c_str()));
         item_archs->addChild(tmp_item);
     }
