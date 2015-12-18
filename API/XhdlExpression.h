@@ -9,8 +9,9 @@
 #include <string>
 #include <vector>
 using namespace std;
+#include "xhdl_atom.h"
 
-class XhdlExpression  
+class XhdlExpression   : public xhdl_atom
 {
 public:
 	XhdlExpression();
@@ -25,6 +26,12 @@ public:
         XhdlExpression *expr2 ; // expr2 , op , expr3
 	XhdlExpression *expr3 ; // TODO : merge expression into expr1, expr2
 	int type ; 
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
+
+private :
+    string CLASS_TAG;
+
 };
 
 #endif 

@@ -12,11 +12,12 @@
 #ifndef XHDLPROJ_MAN_H
 #define XHDLPROJ_MAN_H
 #include "XmlReader.h"
+#include "xhdl_atom.h"
 
 /**
 @author walid
 */
-class XhdlProj_man{
+class XhdlProj_man  : public xhdl_atom{
 public:
     XhdlProj_man();
     ~XhdlProj_man();

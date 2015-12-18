@@ -10,6 +10,7 @@
 
 XhdlExpression::XhdlExpression()
 {
+	this->setCLASS_TAG("XhdlExpression");
   
   
 }
@@ -102,8 +103,18 @@ void XhdlExpression::fillObject (XmlReader *xr)
     }
   
 }
+string XhdlExpression::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void XhdlExpression::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+
 
 XhdlExpression::~XhdlExpression()
 {
-  
+    
 }

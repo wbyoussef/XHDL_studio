@@ -6,13 +6,14 @@
 #define XHDLENUMTYPE_H
 
 #include "XmlReader.h"
+#include "xhdl_atom.h"
 
 #include <string>
 #include <vector>
 
 using namespace std;
 
-class XhdlEnumType  
+class XhdlEnumType   : public xhdl_atom
 {
 
 public:
@@ -24,7 +25,16 @@ public:
 	vector <string> enumlist ; //list of possible occurence
 
 
+    string getFull_name() const;
+    void setFull_name(const string &value);
 
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
+
+private :
+    string full_name;
+private :
+    string CLASS_TAG;
 };
 
 #endif 

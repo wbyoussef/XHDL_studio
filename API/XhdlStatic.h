@@ -27,11 +27,19 @@ public:
 	void fillObject(XmlReader *xr);
     
 
+    string getFull_name() const;
+    void setFull_name(const string &value);
+
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
+
 private :
-	XhdlBody* parent_body;
+    XhdlBody* parent_body;
 
 
-
+private :
+    string full_name;
+    string CLASS_TAG;
 };
 
 #endif 

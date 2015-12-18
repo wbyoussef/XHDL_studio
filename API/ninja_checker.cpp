@@ -89,7 +89,6 @@ int nb_occurences (const char* str1, const char* str2)
 
 
 
-// {{{ const char* ip_check_duplicated_signals (XhdlIp* ip);
 
 check_result_t* ip_check_duplicated_signals (XhdlIp* ip)
 {
@@ -119,9 +118,7 @@ check_result_t* ip_check_duplicated_signals (XhdlIp* ip)
   return out_check;
 };
 
-// }}}
 
-// {{{ const char* ip_check_duplicated_processes (XhdlIp* ip, const char* arch_name);
 
 check_result_t* ip_check_duplicated_processes (XhdlIp* ip, const char* arch_name)
 {
@@ -151,18 +148,14 @@ check_result_t* ip_check_duplicated_processes (XhdlIp* ip, const char* arch_name
   return out_check;
 };
 
-// }}}
 
-// {{{ const char * report_ip_check_duplicated_signals (XhdlIp* ip)
 
 const char * report_ip_check_duplicated_signals (XhdlIp* ip)
 {
   return (ip_check_duplicated_signals(ip))->report->c_str(); 
 };
 
-// }}}
 
-// {{{ bool check label name (const char* label);
 bool check_label_name ( const char * sig_name )
 {
   string tmp;
@@ -173,9 +166,7 @@ bool check_label_name ( const char * sig_name )
   else 
     return false; 
 };
-// }}}
 
-// {{{ const char*  ip_check_label_names (XhdlIp *ip , const char * arch_name);
 check_result_t* ip_check_label_names ( XhdlIp *ip , const char *arch_name)
 {
   check_result_t* out_check = new check_result_t;
@@ -214,16 +205,12 @@ check_result_t* ip_check_label_names ( XhdlIp *ip , const char *arch_name)
   return out_check;     
   
 }
-// }}}
 
-// {{{ const char*  report_ip_check_label_names (XhdlIp *ip , const char * arch_name);
 const char* report_ip_check_label_names (XhdlIp *ip , const char * arch_name)
 { 
   return ( ip_check_label_names  ( ip , arch_name )-> report->c_str() ) ;
 }
-// }}}
 
-// {{{ const char*  is_valid_type ( const char * type )
 bool is_valid_type ( XhdlIp *ip , const char *arch_name  , const char * type )
 {
   /* vector <XhdlEnumType*>::const_iterator e_iter ;
@@ -258,9 +245,7 @@ bool is_valid_type ( XhdlIp *ip , const char *arch_name  , const char * type )
   
   
 }
-// }}}
 
-// {{{ const char*  ip_check_signals_type ( XhdlIp *ip , const char* arch_name )
 check_result_t* ip_check_signals_type( XhdlIp *ip , const char* arch_name )
 {
   
@@ -301,17 +286,13 @@ check_result_t* ip_check_signals_type( XhdlIp *ip , const char* arch_name )
   out_check->report = outrep;
   return out_check;
 }
-// }}}
 
-// {{{ const char*  ip_check_signals_type ( XhdlIp *ip , const char* arch_name )
 const char * report_ip_check_signals_type( XhdlIp *ip , const char* arch_name )
 {
   return ( ip_check_signals_type ( ip , arch_name )->report->c_str() );
 }
 
-// }}}
 
-// {{{ bool  is_duplicated( const char * instance1 , const char * instance2)
 
 bool is_duplicated ( XhdlIp *ip , const char* arch_name ,const char* instance1)
 {
@@ -343,9 +324,7 @@ bool is_duplicated ( XhdlIp *ip , const char* arch_name ,const char* instance1)
   */
 }
 
-// }}}
 
-// {{{ const char*  ip_check_duplicated_instances ( XhdlIp *ip , const char* arch_name )
 
 check_result_t* ip_check_duplicated_instances (XhdlIp *ip , const char * arch_name )
 {
@@ -386,16 +365,12 @@ check_result_t* ip_check_duplicated_instances (XhdlIp *ip , const char * arch_na
   return out_check ; 
 }
 
-// }}}
 
-// {{{ const char*  report_ip_check_duplicated_instances ( XhdlIp *ip , const char* arch_name )
 const char * report_ip_check_duplicated_instances ( XhdlIp *ip , const char * arch_name )
 {
   return ( ip_check_duplicated_instances ( ip , arch_name )->report->c_str() ) ;
 }
-// }}}
 
-// {{{ check_result_t*  ip_check_duplicated_instances ( XhdlIp *ip , const char* arch_name )
 
 check_result_t* ip_check_unknown_signals (XhdlIp *ip , const char * arch_name )
 {
@@ -439,18 +414,14 @@ check_result_t* ip_check_unknown_signals (XhdlIp *ip , const char * arch_name )
   return out_check;
 }
 
-// }}}
 
-// {{{ const char*  report_ip_check_duplicated_instances ( XhdlIp *ip , const char* arch_name )
 const char * report_ip_check_unknown_signals ( XhdlIp *ip , const char * arch_name )
 {
   return ( ip_check_unknown_signals ( ip , arch_name )->report->c_str () ) ;
 } 
-// }}}
 
 
 
-// {{{  check_result_t* ip_check_entity (XhdlIp *ip );
 check_result_t* ip_check_entity (XhdlIp *ip )
 {
   check_result_t* out_check = new check_result_t();
@@ -488,18 +459,14 @@ check_result_t* ip_check_entity (XhdlIp *ip )
   out_check->report = outrep;
   return out_check;
 }
-// }}}
 
-// {{{ const char * report_ip_check_entity ( XhdlIp *ip);
 const char * report_ip_check_entity ( XhdlIp *ip)
 {
   return ( ((ip_check_entity (ip))->report)->c_str () ) ;
   //return ""; 
 }
-// }}}
 
 
-// {{{ check_result_t* check_io_signal_structure (const XhdlSignal *signal )
 
 check_result_t* check_io_signal_structure (const XhdlSignal *signal )
 {
@@ -555,5 +522,4 @@ return false;
 }
 
 
-// }}}
 

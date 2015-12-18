@@ -21,6 +21,7 @@ extern string itostring (int int_tmp);
 XhdlProcess::XhdlProcess(XhdlBody* parent)
 {
   this->parent_body = parent;
+  this->setCLASS_TAG("XhdlProcess");
 }
 
 
@@ -129,6 +130,26 @@ void XhdlProcess::fillObject( XmlReader *xr)
     }
   
 }
+string XhdlProcess::getFull_name() const
+{
+    return full_name;
+}
+
+void XhdlProcess::setFull_name(const string &value)
+{
+    full_name = value;
+}
+string XhdlProcess::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void XhdlProcess::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+
+
 
 
 
@@ -136,7 +157,7 @@ void XhdlProcess::fillObject( XmlReader *xr)
 
 XhdlProcess::~XhdlProcess()
 {
-  
+    
 }
 
 
@@ -144,5 +165,5 @@ XhdlProcess::~XhdlProcess()
 
 XhdlBody* XhdlProcess::get_parent_body()
 {
-  return parent_body;
+    return parent_body;
 }

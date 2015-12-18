@@ -56,7 +56,8 @@ HEADERS = mainwindow.h \
     qentityscene_label.h \
     qscene_port.h \
     qscene_body.h \
-    xs_qtreewidgetitem.h
+    xs_qtreewidgetitem.h \
+    ../../API/xhdl_atom.h
 SOURCES = mainwindow.cpp \
     mdichild.cpp \
     ../../API/XmlReader.cpp \
@@ -104,7 +105,8 @@ SOURCES = mainwindow.cpp \
     qentityscene_label.cpp \
     qscene_port.cpp \
     qscene_body.cpp \
-    xs_qtreewidgetitem.cpp
+    xs_qtreewidgetitem.cpp \
+    ../../API/xhdl_atom.cpp
 RESOURCES = mdi.qrc
 
 # install

@@ -34,7 +34,7 @@ class XhdlEnumType;
 
 bool rename_arch (XhdlIp* ip, const char* old_arch_name, const char* new_arch_name);
 XhdlArch* arch_load_from_xml (const char* filename);
-XhdlArch* arch_load_from_string (char* doc_stream);
+XhdlArch* arch_load_from_string (const char* doc_stream);
 const char* get_arch_name (XhdlArch* arch);
 bool clone_enum (XhdlEnumType* src, XhdlEnumType* Dest);
 bool clone_arch (XhdlArch* src, XhdlArch* Dest);

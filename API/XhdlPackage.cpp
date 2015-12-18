@@ -39,3 +39,13 @@ XhdlPackage::~XhdlPackage()
 {
   
 }
+string XhdlPackage::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void XhdlPackage::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+

@@ -18,6 +18,8 @@ xhdl_instruction::xhdl_instruction(XhdlProcess* parent)
 {
   this->parent_process = parent;
   is_root = true;
+  this->setCLASS_TAG("xhdl_instruction");
+
 }
 
 
@@ -25,6 +27,8 @@ xhdl_instruction::xhdl_instruction(xhdl_if_statement* parent)
 {
   this->parent_if_statement = parent;
   is_root = false;
+  this->setCLASS_TAG("xhdl_instruction");
+
 }
 
 xhdl_instruction::~xhdl_instruction()
@@ -69,8 +73,18 @@ void xhdl_instruction::fillObject(XmlReader *xr)
      }
   */
 }
+string xhdl_instruction::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void xhdl_instruction::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+
 
 XhdlProcess* xhdl_instruction::get_parent_process()
 {
-  return parent_process;
+    return parent_process;
 }

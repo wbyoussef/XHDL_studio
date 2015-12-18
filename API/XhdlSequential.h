@@ -9,7 +9,7 @@ class XhdlAffectation;
 #include "XhdlAffectation.h"
 #include "XhdlExpression.h"
 
-class XhdlSequential  
+class XhdlSequential   : public xhdl_atom
 {
   public :
 	struct node{
@@ -46,7 +46,16 @@ public:
 	string litteral;
 	string startfrom ; //attribute default is low
 	vector <XhdlSequential*> for_seq_list;
+    string getFull_name() const;
+    void setFull_name(const string &value);
 
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
+
+private :
+    string full_name;
+private :
+    string CLASS_TAG;
 };
 
 #endif

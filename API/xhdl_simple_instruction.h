@@ -16,9 +16,11 @@
 @author walid
 */
 
+#include "xhdl_atom.h"
 class xhdl_instruction;
 
-class xhdl_simple_instruction{
+class xhdl_simple_instruction  : public xhdl_atom
+{
 public:
 	xhdl_instruction * get_parent_instruction();
 	struct node{
@@ -43,11 +45,15 @@ public:
     string number;
     string null;
     
-	private :
-	xhdl_instruction *parent_instruction;
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
+
+private :
+    xhdl_instruction *parent_instruction;
     xhdl_simple_instruction *parent_simple_instruction;
     bool is_root;
-
+private :
+    string CLASS_TAG;
 };
 
 #endif

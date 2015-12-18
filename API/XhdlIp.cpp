@@ -17,6 +17,7 @@ XhdlIp::XhdlIp()
   package=new XhdlPackage();
   fileOpened = false ;
   fileGen = false;  
+  this->setCLASS_TAG("XhdlIp");
 }
 
 
@@ -163,3 +164,13 @@ const char* XhdlIp::get_ip_name ()
 {
     return this->entity->name.c_str();
 }
+string XhdlIp::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void XhdlIp::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+

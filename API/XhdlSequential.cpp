@@ -12,6 +12,7 @@
 XhdlSequential::XhdlSequential()
 {
   else_found =false;
+  this->setCLASS_TAG("XhdlSequential");
 }
 
 void XhdlSequential::fillObject (XmlReader *xr)
@@ -248,3 +249,23 @@ XhdlSequential::~XhdlSequential()
 {
   
 }
+string XhdlSequential::getFull_name() const
+{
+    return full_name;
+}
+
+void XhdlSequential::setFull_name(const string &value)
+{
+    full_name = value;
+}
+string XhdlSequential::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void XhdlSequential::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+
+

@@ -5,7 +5,6 @@
 #include "XhdlClasses.h"
 
 
-// {{{ XhdlSignal::XhdlSignal()
 /*
   XhdlSignal::XhdlSignal()
   {
@@ -25,10 +24,8 @@
   clock        = ""    ; 
   }
 */
-// }}}
 
 
-// {{{ XhdlSignal::XhdlSignal(XhdlIp *ip)
 
 XhdlSignal::XhdlSignal(XhdlIp *ip)
 {
@@ -44,12 +41,11 @@ XhdlSignal::XhdlSignal(XhdlIp *ip)
   type         = ""    ;
   is_clock     = false ;
   is_reset     = false ;
+  this->setCLASS_TAG("XhdlSignal");
 }
 
-// }}}
 
 
-// {{{ XhdlSignal::XhdlSignal(const XhdlSignal *sig , string ext )
 
 XhdlSignal::XhdlSignal(const XhdlSignal *sig , string ext )
 {
@@ -65,27 +61,44 @@ XhdlSignal::XhdlSignal(const XhdlSignal *sig , string ext )
   type = sig->type;
   is_clock = sig->is_clock;
   is_reset = sig->is_reset;
+  this->setCLASS_TAG("XhdlSignal");
   
   
 }
 
-// }}}
 
-// {{{ XhdlSignal::~XhdlSignal()
 
 XhdlSignal::~XhdlSignal()
 {
   
 }
+string XhdlSignal::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
 
-// }}}
+void XhdlSignal::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
 
-// {{{ void XhdlSignal::fillObject(XmlReader *xr)
+string XhdlSignal::getFull_name() const
+{
+    return full_name;
+}
+
+void XhdlSignal::setFull_name(const string &value)
+{
+    full_name = value;
+}
+
+
+
 
 void XhdlSignal::fillObject(XmlReader *xr)
 {
-  
-  name=xr->getAttribute("name");
+    
+    name=xr->getAttribute("name");
   xr->moveTofirstChild();
   
   /*=============type?===========================================**/
@@ -224,9 +237,7 @@ void XhdlSignal::fillObject(XmlReader *xr)
   
 }
 
-// }}}
 
-// {{{ void XhdlSignal::set_params ( ...... )
 
 void XhdlSignal::set_params ( string name
 			      ,string type
@@ -263,6 +274,5 @@ void XhdlSignal::set_params ( string name
   
 }
 
-// }}}
 
 

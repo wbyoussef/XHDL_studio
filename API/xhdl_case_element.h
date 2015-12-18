@@ -19,7 +19,8 @@ using namespace std;
 /**
 @author walid
 */
-class xhdl_case_element{
+class xhdl_case_element : public xhdl_atom
+{
 public:
     xhdl_case_element();
     ~xhdl_case_element();
@@ -27,7 +28,11 @@ public:
     vector<xhdl_instruction*> instructions;
     int value;
    
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
 
+private :
+    string CLASS_TAG;
 };
 
 #endif

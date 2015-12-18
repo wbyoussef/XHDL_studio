@@ -104,7 +104,7 @@ XhdlArch* arch_load_from_xml (const char* filename)
 }
 
 
-XhdlArch* arch_load_from_string (char* doc_stream)
+XhdlArch* arch_load_from_string (const char* doc_stream)
 {
   XhdlArch * return_arch = new XhdlArch(NULL);
   // open Xml File 

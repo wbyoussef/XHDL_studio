@@ -10,7 +10,7 @@
 #include<vector>
 using namespace std;
 
-class XhdlPackage  
+class XhdlPackage   : public xhdl_atom
 {
 public:
 	XhdlPackage();
@@ -20,7 +20,11 @@ public:
 public:
 	string name;
 	vector<XhdlSignal*> list_bus;
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
 
+private :
+    string CLASS_TAG;
 };
 
 #endif 

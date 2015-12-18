@@ -47,6 +47,7 @@
 #include "XhdlEntity.h"
 #include "Xhdl_tcl_interface.h"
 #include "xs_qtreewidgetitem.h"
+#include "ninja_defines.h"
 
 MdiChild::MdiChild()
 {
@@ -106,44 +107,44 @@ bool MdiChild::saveFile(const QString &fileName)
 bool MdiChild::fill_description()
 {
     //! fille IP namme
-    XS_QTreeWidgetItem* item = new XS_QTreeWidgetItem();
+    XS_QTreeWidgetItem* item = new XS_QTreeWidgetItem("", XHDL::XHDL_NONE);
     item->setText(0,QString ("General"));
 
-    XS_QTreeWidgetItem* item_ipname = new XS_QTreeWidgetItem();
+    XS_QTreeWidgetItem* item_ipname = new XS_QTreeWidgetItem(this->main_ip->entity->getFull_name().c_str(), XHDL::XHDL_ENTITTY);
     item_ipname->setText(0,"name");
     item_ipname->setText(1,this->main_ip->entity->name.c_str());
     item->addChild(item_ipname);
 
-    XS_QTreeWidgetItem* item_params = new XS_QTreeWidgetItem();
+    XS_QTreeWidgetItem* item_params = new XS_QTreeWidgetItem("",XHDL::XHDL_NONE);
     item_params->setText(0,QString ("Parameters"));
 
     for (int i =0; i<this->main_ip->entity->list_params.size();i++) {
-        XS_QTreeWidgetItem* item_params_unit = new XS_QTreeWidgetItem();
+        XS_QTreeWidgetItem* item_params_unit = new XS_QTreeWidgetItem(this->main_ip->entity->list_params.at(i).c_str(),XHDL::XHDL_PARAMETER  );
         item_params_unit->setText(0, this->main_ip->entity->list_params.at(i).c_str());
         item_params->addChild(item_params_unit);
     }
 
-    XS_QTreeWidgetItem* item_bus = new XS_QTreeWidgetItem();
+    XS_QTreeWidgetItem* item_bus = new XS_QTreeWidgetItem("",XHDL::XHDL_NONE);
     item_bus->setText(0,QString ("Interface"));
 
     for (int i =0; i<this->main_ip->entity->list_bus.size();i++) {
-        XS_QTreeWidgetItem* item_params_unit = new XS_QTreeWidgetItem();
+        XS_QTreeWidgetItem* item_params_unit = new XS_QTreeWidgetItem(this->main_ip->entity->list_bus.at(i)->getFull_name().c_str(),XHDL::XHDL_SIGNAL);
         item_params_unit->setText(0, (this->main_ip->entity->list_bus.at(i)->name.c_str()));
         item_bus->addChild(item_params_unit);
     }
 
-    XS_QTreeWidgetItem* item_clocks = new XS_QTreeWidgetItem();
+    XS_QTreeWidgetItem* item_clocks = new XS_QTreeWidgetItem("",XHDL::XHDL_NONE);
     item_clocks->setText(0,"clocks");
-    XS_QTreeWidgetItem* item_clock = new XS_QTreeWidgetItem();
+    XS_QTreeWidgetItem* item_clock = new XS_QTreeWidgetItem(this->main_ip->entity->clk->getFull_name().c_str(),XHDL::XHDL_CLOCK);
     item_clock->setText(0,this->main_ip->entity->clk->name.c_str());
     item_clocks->addChild(item_clock);
 
 
 
-    XS_QTreeWidgetItem* item_archs = new XS_QTreeWidgetItem();
+    XS_QTreeWidgetItem* item_archs = new XS_QTreeWidgetItem("",XHDL::XHDL_NONE);
     item_archs->setText(0,QString ("Architectures"));
     for (int i =0; i<this->main_ip->list_arch.size();i++) {
-        XS_QTreeWidgetItem* tmp_item = new XS_QTreeWidgetItem();
+        XS_QTreeWidgetItem* tmp_item = new XS_QTreeWidgetItem(this->main_ip->list_arch.at(i)->getFull_name().c_str(),XHDL::XHDL_ARCH);
         tmp_item->setText(0, (this->main_ip->list_arch.at(i)->name.c_str()));
         item_archs->addChild(tmp_item);
     }

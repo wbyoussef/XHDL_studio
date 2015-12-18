@@ -28,7 +28,7 @@ class XhdlProcess ;
 class xhdl_if_statement;
 
 
-class xhdl_instruction
+class xhdl_instruction : public xhdl_atom
 {
 public:
 	XhdlProcess* get_parent_process();
@@ -51,11 +51,15 @@ public:
 	xhdl_if_statement* if_statement;
 	
 
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
+
 private :
-	XhdlProcess* parent_process;
+    XhdlProcess* parent_process;
     xhdl_if_statement* parent_if_statement;
 	bool is_root;
-
+private :
+    string CLASS_TAG;
 };
 
 #endif

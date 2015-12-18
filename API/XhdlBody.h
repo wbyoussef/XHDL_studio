@@ -18,7 +18,7 @@
 using namespace std;
 class XhdlArch;
 class XhdlStatic; 
-class XhdlBody  
+class XhdlBody   : public xhdl_atom
 {
 public:
    XhdlBody(XhdlArch* arch );
@@ -39,6 +39,16 @@ public:
   
    
    
+   string getFull_name() const;
+   void setFull_name(const string &value);
+
+   string getCLASS_TAG() const;
+   void setCLASS_TAG(const string &value);
+
+private :
+   string full_name;
+private :
+   string CLASS_TAG;
 
 };
 

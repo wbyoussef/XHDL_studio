@@ -5,12 +5,13 @@
 #include<string>
 #include<vector>
 
+#include "xhdl_atom.h"
 using namespace std;
 class XhdlIp;
 class XhdlSignal; 
 class XmlReader; 
 
-class XhdlEntity
+class XhdlEntity  : public xhdl_atom
 {
   
   
@@ -30,8 +31,16 @@ class XhdlEntity
   XhdlSignal* clk;
   XhdlIp* parent;
   
+  string getFull_name() const;
+  void setFull_name(const string &value);
+
+  string getCLASS_TAG() const;
+  void setCLASS_TAG(const string &value);
+
+private :
+  string full_name;
   
-  
-  
+private :
+  string CLASS_TAG;
 };
 #endif

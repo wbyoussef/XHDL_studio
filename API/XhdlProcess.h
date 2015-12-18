@@ -15,7 +15,7 @@ using namespace std;
 
 class XhdlBody;
 
-class XhdlProcess  
+class XhdlProcess   : public xhdl_atom
 {
 public:
 	XhdlProcess(XhdlBody* parent);
@@ -35,8 +35,17 @@ public:
 	// deserialisation 
 	void fillObject(XmlReader *xr);
 
+    string getFull_name() const;
+    void setFull_name(const string &value);
+
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
+
 private :
-	XhdlBody* parent_body;
+    XhdlBody* parent_body;
+    string full_name;
+private :
+    string CLASS_TAG;
 };
 
 #endif 

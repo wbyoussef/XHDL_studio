@@ -18,7 +18,7 @@ public:
 	virtual ~XmlReader();
 
     bool openDoc(const  char* fileName);
-        bool open_stream(char* doc_stream);
+        bool open_stream(const char* doc_stream);
 	bool moveTofirstChild();
 	void moveToNextSibling();
 	void moveToParent();

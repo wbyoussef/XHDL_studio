@@ -8,7 +8,6 @@ using namespace std;
 #include "XmlReader.h"
 
 
-// {{{ const char* get_xml_element_type (xmlElementType type)
 
 const char* get_xml_element_type (xmlElementType type)
 {
@@ -39,19 +38,14 @@ const char* get_xml_element_type (xmlElementType type)
   return "";
 }
 
-// }}}
 
-
-// {{{ XmlReader::XmlReader()
 
 XmlReader::XmlReader()
 {
   fileOpened=false;
 }
 
-// }}}
 
-// {{{ XmlReader::XmlReader(const XmlReader *brother)
 
 XmlReader::XmlReader(const XmlReader *brother)
 {
@@ -61,18 +55,14 @@ XmlReader::XmlReader(const XmlReader *brother)
   
 }
 
-// }}}
 
-// {{{ XmlReader::~XmlReader()
 
 XmlReader::~XmlReader()
 {
   
 }
 
-// }}}
 
-// {{{ const char* XmlReader::report ()
 
 const char* XmlReader::report ()
 {
@@ -138,10 +128,7 @@ const char* XmlReader::report ()
   return  return_tmp.c_str();
 }
 
-// }}}
 
-
-// {{{ bool XmlReader::openDoc( char* filename)
 
 bool XmlReader::openDoc( const char* filename)
 {
@@ -160,25 +147,22 @@ bool XmlReader::openDoc( const char* filename)
   return fileOpened;
 }
 
-// }}}
 
-// {{{ bool XmlReader::open_stream(char* doc_stream)
 
-bool XmlReader::open_stream(char* doc_stream)
+
+bool XmlReader::open_stream(const char* doc_stream)
 {
-  unsigned char * xmlchat_tmp = reinterpret_cast<unsigned char*> (doc_stream);
-//  doc = xmlParseDoc (xmlchat_tmp);
+  const unsigned char * xmlchat_tmp = reinterpret_cast<const unsigned char*> (doc_stream);
+
   doc = xmlParseDoc (reinterpret_cast<const xmlChar*> ("w:/derfault_ip.xml"));
   currentNode = xmlDocGetRootElement (doc);
   moveTofirstChild();  // root's text
-  // moveTofirstChild();  // root's text
+
   fileOpened = true;
   return true; 
 }
 
-// }}}
 
-// {{{ string XmlReader::getTagName()
 
 string XmlReader::getTagName()
 {
@@ -191,9 +175,7 @@ string XmlReader::getTagName()
       }
 }
 
-// }}}
 
-// {{{ string XmlReader::getTextData()
 
 string XmlReader::getTextData()
 {
@@ -208,11 +190,7 @@ string XmlReader::getTextData()
   return return_tmp;
 }
 
-// }}}
 
-
-
-// {{{ void XmlReader::moveTofirstChild()
 
 bool XmlReader::moveTofirstChild()
 {
@@ -229,9 +207,6 @@ bool XmlReader::moveTofirstChild()
     }
 }
 
-// }}}
-
-// {{{ void XmlReader::moveToNextSibling()
 
 void XmlReader::moveToNextSibling()
 {
@@ -243,9 +218,6 @@ void XmlReader::moveToNextSibling()
     } 
 }
 
-// }}}
-
-// {{{ void XmlReader::moveToParent()
 
 void XmlReader::moveToParent()
 {
@@ -254,10 +226,6 @@ void XmlReader::moveToParent()
       currentNode = currentNode->parent;
     } 
 }
-
-// }}}
-
-// {{{ const char * XmlReader::getAttribute(const char * attName)
 
 const char * XmlReader::getAttribute(const char * attName)
 {
@@ -271,6 +239,4 @@ const char * XmlReader::getAttribute(const char * attName)
     }
   return "NULL";
 }
-
-// }}}
 

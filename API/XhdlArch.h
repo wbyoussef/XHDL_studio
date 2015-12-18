@@ -15,7 +15,7 @@
 using namespace std;
 class XhdlIp;
 class XhdlBody;
-class XhdlArch  
+class XhdlArch   : public xhdl_atom
 {
 public:
     XhdlArch(XhdlIp* ip);
@@ -36,6 +36,17 @@ public:
 
     // deserialisation fonction
 	void fillObject(XmlReader *xr);
+
+    string getFull_name() const;
+    void setFull_name(const string &value);
+
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
+
+private :
+    string full_name;
+private :
+    string CLASS_TAG;
 };
 
 #endif

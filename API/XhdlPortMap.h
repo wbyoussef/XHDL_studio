@@ -9,12 +9,13 @@
 #include<vector>
 #include<string>
 using namespace std;
+#include "xhdl_atom.h"
 
 
 
 class XhdlBody;
 
-class XhdlPortMap  
+class XhdlPortMap    : public xhdl_atom
 {
 public:
 	XhdlPortMap(XhdlBody  *body);
@@ -38,10 +39,15 @@ public:
 	// deserialization
 	void fillObject( XmlReader *xr);
 
-private :
-    // localisation 
-	XhdlBody  * parent ;
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
 
+private :
+    // localisation
+    XhdlBody  * parent ;
+
+private :
+    string CLASS_TAG;
 
 };
 

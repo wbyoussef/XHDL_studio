@@ -13,6 +13,7 @@
 
 XhdlProj_man::XhdlProj_man()
 {
+	this->setCLASS_TAG("XhdlProj_man");
 }
 
 

@@ -20,19 +20,17 @@
 
 
 using namespace std;
-// {{{ string itostring (int int_tmp)
 
 XhdlIp *local_ip ;
 string itostring (int int_tmp)
 {
+	//! buffer to convert int 
   char * char_tmp= new char;
   sprintf (char_tmp , "%d",int_tmp );
   return string (char_tmp);
 }
 
-// }}}
 
-// {{{ string ip_gen_xml (XhdlIp* ip)
 
 string ip_gen_xml (XhdlIp* ip)
 {
@@ -58,9 +56,7 @@ string ip_gen_xml (XhdlIp* ip)
   return out_xml;
 } 
 
-// }}}
 
-// {{{ string entity_gen_xml (XhdlEntity * entity)
 
 string entity_gen_xml (XhdlEntity * entity)
 {
@@ -91,9 +87,7 @@ string entity_gen_xml (XhdlEntity * entity)
   return out_xml;
 }
 
-// }}}
 
-// {{{ string get_architecture_xml (const XhdlArch * architecture)
 
 string get_architecture_xml (const XhdlArch * architecture)
 {
@@ -135,9 +129,7 @@ string get_architecture_xml (const XhdlArch * architecture)
   return out_xml;
 }
 
-// }}}
 
-// {{{ string body_get_xml (const XhdlBody* body )
 
 string body_get_xml (const XhdlBody* body )
 {
@@ -189,9 +181,7 @@ string body_get_xml (const XhdlBody* body )
   return out_xml;
 }
 
-// }}}
 
-// {{{ string map_get_xml (XhdlPortMap *port_map)
 
 string map_get_xml (XhdlPortMap *port_map)
 {
@@ -218,9 +208,7 @@ string map_get_xml (XhdlPortMap *port_map)
   return out_xml;
 }
 
-// }}}
 
-// {{{ string stat_get_xml (XhdlStatic *stat_assgn)
 
 string stat_get_xml (XhdlStatic *stat_assgn)
 {//TODO
@@ -232,10 +220,8 @@ string stat_get_xml (XhdlStatic *stat_assgn)
   return out_xml;
 }
 
-// }}}
 
 
-// {{{ string affect_get_xml (XhdlAffectation *affect)
 
 string affect_get_xml (XhdlAffectation *affect)
 {//TODO 
@@ -258,9 +244,7 @@ string affect_get_xml (XhdlAffectation *affect)
   return out_xml;
 }
 
-// }}}
 
-// {{{ string default_expression_get_xml (const XhdlExpression* expression)
 
 string default_expression_get_xml (const XhdlExpression* expression)
 {
@@ -271,7 +255,6 @@ string default_expression_get_xml (const XhdlExpression* expression)
   
 }
 
-// }}}
 
 string op_gen_xml(string op)
 {
@@ -306,7 +289,6 @@ string op_gen_xml(string op)
 
 
 
-// {{{ string expression_get_xml (const XhdlExpression* expression, const char* tag)
 
 string expression_get_xml (const XhdlExpression* expression, const char* tag )
 {
@@ -344,9 +326,7 @@ string expression_get_xml (const XhdlExpression* expression, const char* tag )
   return rout_xml;
 }
 
-// }}}
 
-// {{{ string describe_expression (const XhdlExpression *expression_tmp)
 
 string describe_expression (const XhdlExpression *expression_tmp)
 {
@@ -370,9 +350,7 @@ string describe_expression (const XhdlExpression *expression_tmp)
   
 }
 
-// }}}
 
-// {{{ string process_get_xml (XhdlProcess* process)
 
 string process_get_xml (XhdlProcess* process)
 {//TODO
@@ -406,9 +384,7 @@ string process_get_xml (XhdlProcess* process)
   return  out_xml;
 }
 
-// }}}
 
-// {{{ string instruction_get_xml (const xhdl_instruction *instruction)
 
 string instruction_get_xml (const xhdl_instruction *instruction)
 {
@@ -423,9 +399,7 @@ string instruction_get_xml (const xhdl_instruction *instruction)
   return out_xml;
 }
 
-// }}}
 
-// {{{ string simple_instruction_get_xml (const xhdl_simple_instruction *simple_instruction)
 
 string simple_instruction_get_xml (const xhdl_simple_instruction *simple_instruction)
 {
@@ -452,9 +426,7 @@ string simple_instruction_get_xml (const xhdl_simple_instruction *simple_instruc
   return out_xml;
 }
 
-// }}}
 
-// {{{ string sequential_get_xml (XhdlSequential *sequence_item)
 
 string sequential_get_xml (XhdlSequential *sequence_item)
 {
@@ -480,9 +452,7 @@ string sequential_get_xml (XhdlSequential *sequence_item)
   return out_xml;
 }
 
-// }}}
 
-// {{{ string plain_get_xml (XhdlPlain* plain)
 
 string plain_get_xml (XhdlPlain* plain)
 {//TODO
@@ -491,9 +461,7 @@ string plain_get_xml (XhdlPlain* plain)
   return  out_xml;
 }
 
-// }}}
 
-// {{{ string enum_type_gen_xml (XhdlEnumType * enum_type)
 
 string enum_type_gen_xml (XhdlEnumType * enum_type)
 {
@@ -514,9 +482,7 @@ string enum_type_gen_xml (XhdlEnumType * enum_type)
   return out_xml; //TODO
 }
 
-// }}}
 
-// {{{ string documentation_gen_xml (string document)
 
 string documentation_gen_xml (string document)
 {
@@ -526,9 +492,7 @@ string documentation_gen_xml (string document)
   return out_xml;
 }
 
-// }}}
 
-// {{{ string version_gen_xml (string version)
 
 string version_gen_xml (string version)
 {
@@ -538,9 +502,7 @@ string version_gen_xml (string version)
   return out_xml;
 }
 
-// }}}
 
-// {{{ string package_gen_xml (XhdlPackage *package)
 
 string package_gen_xml (XhdlPackage *package)
 {
@@ -560,9 +522,7 @@ string package_gen_xml (XhdlPackage *package)
   return out_xml;
 }
 
-// }}}
 
-// {{{ string get_signal_xml       (const XhdlSignal * signal        )
 
 string get_signal_xml       (const XhdlSignal * signal        )
 {
@@ -623,9 +583,7 @@ string get_signal_xml       (const XhdlSignal * signal        )
   
 }
 
-// }}}
 
-// {{{ string get_signal_name (string sig_name , int use)
 string get_signal_name (XhdlIp* ip,  const char* arch_name, string sig_name , int use)
 {
   XhdlSignal* tmp_signal= get_signal(ip,arch_name, sig_name.c_str());
@@ -665,9 +623,7 @@ string get_signal_name (XhdlIp* ip,  const char* arch_name, string sig_name , in
      return string ( simplify_white_spaces ( sig_name ) + "_next" ) ;
   */
 }
-// }}}
 
-// {{{ string proj_man_gen_xml ( string project_man)
 
 string proj_man_gen_xml ( string project_man)
 {
@@ -677,28 +633,22 @@ string proj_man_gen_xml ( string project_man)
   return out_xml;
 }
 
-// }}}
 
-// {{{ const char * get_string (string string_tmp)
 
 const char * get_string (string string_tmp)
 {
   return string_tmp.c_str();
 } 
 
-// }}}
 
-// {{{ string new_string (const char * char_tmp)
 
 string new_string (const char * char_tmp)
 {
   return string(char_tmp);
 } 
 
-// }}}
 
 
-// {{{ bool save_string_to_file (string string_tmp, const char * file_name )
 
 /*!
   This functions stores a string variable into a file 
@@ -715,9 +665,7 @@ bool save_string_to_file (string string_tmp, const char * file_name )
   return true;
 }
 
-// }}}
 
-// {{{ bool save_chars_to_file (const char*  chars_tmp, const char * file_name )
 
 /*!
   This functions stores a const char* variable into a file 
@@ -734,5 +682,4 @@ bool save_chars_to_file (const char*  chars_tmp, const char * file_name )
   return true;
 }
 
-// }}}
 

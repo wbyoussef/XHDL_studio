@@ -6,12 +6,14 @@
 XhdlEntity::XhdlEntity()
 {
   name="";
+  this->setCLASS_TAG("XhdlEntity");
 }
 
 // constructor 
 XhdlEntity::XhdlEntity(XhdlIp* ip)
 {
   parent = ip; 
+  this->setCLASS_TAG("XhdlEntity");
 }
 
 // load entity from an XML reader 
@@ -60,6 +62,26 @@ void XhdlEntity::fillObject(XmlReader *xr)
     }
   
 }
+string XhdlEntity::getFull_name() const
+{
+    return full_name;
+}
+
+void XhdlEntity::setFull_name(const string &value)
+{
+    full_name = value;
+}
+string XhdlEntity::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void XhdlEntity::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+
+
 
 
 

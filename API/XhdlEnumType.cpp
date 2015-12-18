@@ -10,6 +10,7 @@
 
 XhdlEnumType::XhdlEnumType()
 {
+	this->setCLASS_TAG("XhdlEnumType");
   
 }
 
@@ -43,8 +44,28 @@ void XhdlEnumType::fillObject ( XmlReader *xr )
     }
   
 }
+string XhdlEnumType::getFull_name() const
+{
+    return full_name;
+}
+
+void XhdlEnumType::setFull_name(const string &value)
+{
+    full_name = value;
+}
+string XhdlEnumType::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void XhdlEnumType::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+
+
 
 XhdlEnumType::~XhdlEnumType()
 {
-  
+    
 }

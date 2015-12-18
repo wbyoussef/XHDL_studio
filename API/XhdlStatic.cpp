@@ -11,6 +11,7 @@
 
 XhdlStatic::XhdlStatic()
 {
+	this->setCLASS_TAG("XhdlStatic");
   
   
 }
@@ -18,6 +19,7 @@ XhdlStatic::XhdlStatic()
 XhdlStatic::XhdlStatic(XhdlBody* parent)
 {
   this->parent_body = parent;
+  this->setCLASS_TAG("XhdlStatic");
   
 }
 
@@ -33,6 +35,26 @@ void XhdlStatic::fillObject(XmlReader *xr)
       return ;
     }
 }
+string XhdlStatic::getFull_name() const
+{
+    return full_name;
+}
+
+void XhdlStatic::setFull_name(const string &value)
+{
+    full_name = value;
+}
+string XhdlStatic::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void XhdlStatic::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+
+
 
 
 
@@ -40,7 +62,7 @@ void XhdlStatic::fillObject(XmlReader *xr)
 
 XhdlStatic::~XhdlStatic()
 {
-  
+    
 }
 
 

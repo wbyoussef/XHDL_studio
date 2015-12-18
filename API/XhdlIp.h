@@ -11,6 +11,7 @@
 // STL libs 
 #include <string>
 #include <vector>
+#include "xhdl_atom.h"
 
 using namespace std;
 
@@ -20,7 +21,7 @@ class XhdlPackage  ;
 class XhdlArch  ;
 class XmlReader  ;
 
-class XhdlIp  
+class XhdlIp   : public xhdl_atom
 {
 public:
 	XhdlIp();
@@ -53,8 +54,14 @@ public:
 	string project_man;
 
 
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
+
 private:
-	XmlReader *xmlrd;
+    XmlReader *xmlrd;
+
+private :
+    string CLASS_TAG;
 };
 
 #endif 

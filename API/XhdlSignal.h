@@ -7,12 +7,13 @@
 // #include<qdom.h>
 
 #include "XmlReader.h"
+#include "xhdl_atom.h"
 
 #include<string>
 using namespace std;
 
 class XhdlIp  ;
-class XhdlSignal  
+class XhdlSignal   : public xhdl_atom 
 {
 public:
         
@@ -36,7 +37,9 @@ public:
         string clock;
         string reference;
         string comment;
-
+private :
+        string full_name;
+        string CLASS_TAG;
 public:
         void fillObject(XmlReader *xr);
         void set_params ( string name
@@ -54,6 +57,11 @@ public:
                           ,string reference
                           ,string comment
                         );
+
+        string getFull_name() const;
+        void setFull_name(const string &value);
+        string getCLASS_TAG() const;
+        void setCLASS_TAG(const string &value);
 };
 
 #endif 

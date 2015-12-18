@@ -27,7 +27,7 @@ bool use_folders;
 
 XhdlIp* main_ip;
 
-// {{{ usefule functions
+// usefule functions
 void Tokenize(const string& str, vector<string>& tokens,const string& delimiters);
 const char* int_to_char (int x);
 
@@ -65,8 +65,7 @@ const char* remove_duplicateds (const char* data)
   return return_data->c_str();
 }
 
-// }}}
-// {{{ string  simlify_white_spaces(string str ) 
+
 string simplify_white_spaces ( string str ) 
 {
   string *tmp_string = new string ( );
@@ -80,7 +79,7 @@ string simplify_white_spaces ( string str )
 
 
 
-// {{{ string open_folder (const char* folder_name) 
+
 
 string open_folder (const char* folder_name) 
 { 
@@ -94,9 +93,6 @@ string open_folder (const char* folder_name)
   return return_string;
 }
 
-// }}}
-
-// {{{ string close_folder (const char* folder_name) 
 
 string close_folder (const char* folder_name) 
 { 
@@ -110,25 +106,17 @@ string close_folder (const char* folder_name)
   return return_string;
 }
 
-// }}}
-
-// {{{ ieee libs 
 
 void do_use_ieee_libs (){use_ieee_libs = true;}
 void do_not_use_ieee_libs (){use_ieee_libs = false;}
 bool are_ieee_libs_used () {return use_ieee_libs;}
 
-// }}}
-
-// {{{ use folders ?
 
 void do_use_folders (){use_folders = true;}
 void do_not_use_folders (){use_folders = false;}
 bool are_folders_used () {return use_folders;}
 
-// }}}
 
-// {{{ void Tokenize(const string& str, vector<string>& tokens,const string& delimiters = " ")
 
 void Tokenize(const string& str, vector<string>& tokens,const string& delimiters)
 {
@@ -148,10 +136,7 @@ void Tokenize(const string& str, vector<string>& tokens,const string& delimiters
     }
 }
 
-// }}}
 
-
-// {{{ const char* int_to_char (int x)
 
 const char* int_to_char (int x)
 {
@@ -160,13 +145,7 @@ const char* int_to_char (int x)
   return tmp_char;
 }
 
-// }}}
 
-// }}}
-
-// {{{ data manipulating functions 
-
-// {{{ XhdlIp* create_ip (char* name)
 
 XhdlIp* create_ip (char* name)
 {
@@ -176,27 +155,21 @@ XhdlIp* create_ip (char* name)
   return tmp_ip;
 };
 
-// }}}
 
-// {{{ void ip_set_name (XhdlIp* ip, char* name )
 
 void ip_set_name (XhdlIp* ip, char* name)
 {
   ip->entity->name = string (name);
 }
 
-// }}}
 
-// {{{ const char* ip_get_name (const XhdlIp* ip )
 
 const char* ip_get_name (const XhdlIp* ip)
 {
   return ((ip->entity->name).c_str());
 }
 
-// }}}
 
-// {{{ check_result_t * validate_xml_vs_dtd (const char* xml_name, const char* dtd_name) 
 
 check_result_t * validate_xml_vs_dtd (const char* xml_name, const char* dtd_name) {
   xmlDocPtr xmldoc;
@@ -235,9 +208,7 @@ check_result_t * validate_xml_vs_dtd (const char* xml_name, const char* dtd_name
   
 }
 
-// }}}
 
-// {{{ XhdlEntity* create_entity (char* name)
 
 XhdlEntity* create_entity (char* name)
 {
@@ -246,9 +217,7 @@ XhdlEntity* create_entity (char* name)
   return tmp_entity;
 }
 
-// }}}
 
-// {{{ const char * ip_get_documentation (const XhdlIp* ip )
 
 
 const char * ip_get_documentation (const XhdlIp* ip )
@@ -256,27 +225,21 @@ const char * ip_get_documentation (const XhdlIp* ip )
   return ((ip->documentation).c_str());
 };
 
-// }}}
 
-// {{{ void ip_set_documentation (XhdlIp* ip, const char * doc )
 
 void ip_set_documentation (XhdlIp* ip, const char * doc )
 {
   ip->documentation = string (doc);       
 };
 
-// }}}
 
-// {{{ XhdlEntity* ip_get_entity (XhdlIp* ip)
 
 XhdlEntity* ip_get_entity (XhdlIp* ip)
 {
   return (ip->entity);
 }
 
-// }}}
 
-// {{{ XhdlEntity* ip_set_entity (XhdlIp* ip, XhdlEntity* entity)
 
 XhdlEntity* ip_set_entity (XhdlIp* ip, XhdlEntity* entity)
 {
@@ -285,9 +248,7 @@ XhdlEntity* ip_set_entity (XhdlIp* ip, XhdlEntity* entity)
   return old_entity;
 }
 
-// }}}
 
-// {{{ bool ip_open_valid_xml_file (XhdlIp* ip, const char *  filename,  const char *  dtd_file)
 
 bool ip_open_valid_xml_file (XhdlIp* ip,const  char *  filename, const char *  dtd_file)
 {
@@ -298,9 +259,7 @@ bool ip_open_valid_xml_file (XhdlIp* ip,const  char *  filename, const char *  d
   return true;
 }
 
-// }}}
 
-// {{{ bool ip_open_xml_file(XhdlIp* ip, char *  filename)
 
 bool ip_open_xml_file (XhdlIp* ip, char *  filename)
 {
@@ -314,9 +273,7 @@ bool ip_open_xml_file (XhdlIp* ip, char *  filename)
   return true;
 }
 
-// }}}
 
-// {{{ void ip_open_stream (XhdlIp* ip, char *  filename)
 
 void ip_open_stream (XhdlIp* ip, const char * stream)
 {
@@ -324,9 +281,7 @@ void ip_open_stream (XhdlIp* ip, const char * stream)
   ip->setIp();
 }
 
-// }}}
 
-// {{{ const char* ip_describe_entity (XhdlIp* ip)
 
 const char* ip_describe_entity (XhdlIp* ip)
 {
@@ -336,9 +291,7 @@ const char* ip_describe_entity (XhdlIp* ip)
   return "";
 }
 
-// }}}
 
-// {{{ const char* entity_describe (const XhdlEntity* entity)
 
 const char* entity_describe (const XhdlEntity* entity)
 {
@@ -354,9 +307,7 @@ const char* entity_describe (const XhdlEntity* entity)
   return return_val.c_str();
 }
 
-// }}}
 
-// {{{ bool entity_find_signal(XhdlEntity* entity, XhdlSignal* signal)
 
 bool entity_find_signal(XhdlEntity* entity, XhdlSignal* signal)
 {
@@ -370,9 +321,7 @@ bool entity_find_signal(XhdlEntity* entity, XhdlSignal* signal)
   return false;
 }
 
-// }}}
 
-// {{{ bool entity_add_signal(XhdlEntity* entity, XhdlSignal* signal)
 
 bool entity_add_signal(XhdlEntity* entity, XhdlSignal* signal)
 {
@@ -382,9 +331,7 @@ bool entity_add_signal(XhdlEntity* entity, XhdlSignal* signal)
   return true;
 }
 
-// }}}
 
-// {{{ const char* get_clocks (XhdlIp* ip)
 const char* get_clocks (XhdlIp* ip)
 {
   string *return_clocks = new string ("") ;
@@ -400,9 +347,7 @@ const char* get_clocks (XhdlIp* ip)
   
   return return_clocks->c_str();
 }    
-// }}}
 
-// {{{ const char* get_resets (XhdlIp* ip)
 const char* get_resets (XhdlIp* ip)
 {
   string return_resets = "" ;
@@ -418,9 +363,7 @@ const char* get_resets (XhdlIp* ip)
   
   return return_resets.c_str();
 }    
-// }}}
 
-// {{{ const char* get_normal_signals (XhdlIp* ip)
 
 const char* get_normal_signals (XhdlIp* ip)
 {
@@ -438,9 +381,7 @@ const char* get_normal_signals (XhdlIp* ip)
   return return_normal_signals.c_str();
 }    
 
-// }}}
 
-// {{{ const char* get_all_signals (XhdlIp* ip)
 
 /**
  * 
@@ -460,9 +401,7 @@ const char* get_all_signals (XhdlIp* ip)
   return return_all_signals->c_str();
 }    
 
-// }}}
 
-// {{{ const char* get_all_params (XhdlIp* ip)
 
 /**
  * 
@@ -482,9 +421,7 @@ const char* get_all_params (XhdlIp* ip)
   return return_all_params->c_str();
 }    
 
-// }}}
 
-// {{{ const char* get_all_arch_signals (XhdlIp* ip)
 
 /**
  * 
@@ -508,11 +445,9 @@ const char* get_all_arch_signals (XhdlIp* ip , const char* arch_name)
   
   return return_all_signals->c_str();
 }
-// }}} 
 
 
 
-// {{{ XhdlSignal* get_signal (XhdlIp* ip, const char* signal_name)
 XhdlSignal* get_signal (XhdlIp* ip, const char* signal_name)
 {
   vector<XhdlSignal*>::const_iterator iter;
@@ -527,9 +462,7 @@ XhdlSignal* get_signal (XhdlIp* ip, const char* signal_name)
   return NULL;
   //  return return_resets.c_str();
 }    
-// }}}
 
-// {{{ vector<XhdlSignal*> get_signals (XhdlIp* ip, const char* arch_name)
 vector <XhdlSignal*> get_signals (XhdlIp* ip, const char* arch_name )
 {
   XhdlArch *arch = get_arch ( ip , arch_name );
@@ -542,19 +475,15 @@ vector <XhdlSignal*> get_signals (XhdlIp* ip, const char* arch_name )
   
   return sig_list ;
 }      
-// }}}
 
-// {{{ vector<XhdlEnumType*> get_enum_types (XhdlIp* ip, const char* arch_name)
 vector<XhdlEnumType*> get_enum_types (XhdlIp* ip, const char* arch_name)
 { 
   XhdlArch *a = get_arch ( ip , arch_name );
   return a->list_enumtype;
 }
 
-// }}}
 
 
-// {{{ bool does_inout_exist (XhdlIp* ip, const char* signal_name)
 
 bool does_inout_exist (XhdlIp* ip, const char* signal_name)
 {
@@ -569,9 +498,7 @@ bool does_inout_exist (XhdlIp* ip, const char* signal_name)
   return false;
 }    
 
-// }}}
 
-// {{{ bool does_param_exist (XhdlIp* ip, const char* signal_name)
 
 bool does_param_exist (XhdlIp* ip, const char* signal_name)
 {
@@ -586,9 +513,7 @@ bool does_param_exist (XhdlIp* ip, const char* signal_name)
   return false;
 }    
 
-// }}}
 
-// {{{ bool does_signal_exist (XhdlIp* ip, const char* arch_name, const char* sig_name) 
 bool does_signal_exist (XhdlIp* ip, const char * arch_name ,const char* signal_name) 
 {
   if ( ! does_arch_exist ( ip , arch_name ) )
@@ -603,10 +528,8 @@ bool does_signal_exist (XhdlIp* ip, const char * arch_name ,const char* signal_n
   
   return false;
 }
-// }}}
 
 
-// {{{   XhdlSignal* get_signal (XhdlIp* ip, const char * arch_name ,const char* signal_name) 
 XhdlSignal* get_signal (XhdlIp* ip, const char * arch_name ,const char* signal_name) 
 {
   if ( ! does_arch_exist ( ip , arch_name ) )
@@ -623,10 +546,8 @@ XhdlSignal* get_signal (XhdlIp* ip, const char * arch_name ,const char* signal_n
   
   //return NULL;
 }
-// }}}
 
 
-// {{{ XhdlArch* get_arch (XhdlIp* ip, const char* arch_name)
 XhdlArch* get_arch (XhdlIp* ip, const char* arch_name)
 {
   vector<XhdlArch*>::const_iterator iter;
@@ -639,9 +560,7 @@ XhdlArch* get_arch (XhdlIp* ip, const char* arch_name)
     }
   return NULL;
 }    
-// }}}
 
-// {{{   Xhdlmap* get_map (XhdlIp* ip, const char* arch_name,const char* map_name)
 XhdlPortMap* get_map (XhdlIp* ip, const char* arch_name,const char* map_name)
 {
   XhdlArch * arch ;
@@ -677,9 +596,7 @@ XhdlPortMap* get_map (XhdlIp* ip, const char* arch_name,const char* map_name)
     }*/
   return NULL;
 }    
-// }}}
 
-// {{{   XhdlIp* include_map (XhdlIp* ip, const char* arch_name,const char* map_name)
 XhdlIp* include_map (XhdlIp* ip, const char* arch_name,const char* map_name)
 {
   // TODO : add search paths
@@ -692,8 +609,6 @@ XhdlIp* include_map (XhdlIp* ip, const char* arch_name,const char* map_name)
   else 
     return NULL;
 }    
-// }}}
-// {{{ bool does_arch_exist (XhdlIp* ip, const char* arch_name)
 bool does_arch_exist (XhdlIp* ip, const char* arch_name)
 {
   vector<XhdlArch*>::const_iterator iter;
@@ -706,9 +621,7 @@ bool does_arch_exist (XhdlIp* ip, const char* arch_name)
     }
   return false;
 }    
-// }}}
 
-// {{{ bool does_map_exist (XhdlIp* ip, const char* map_name)
 bool does_map_exist (XhdlIp* ip, const char* arch_name, const char* map_name)
 {
   if (does_arch_exist(ip, arch_name))
@@ -723,9 +636,7 @@ bool does_map_exist (XhdlIp* ip, const char* arch_name, const char* map_name)
     }
   return false;
 }    
-// }}}
 
-// {{{ bool does_stat_exist (XhdlIp* ip, const char* stat_name)
 bool does_stat_exist (XhdlIp* ip, const char* arch_name, const char* stat_name)
 {
   if (does_arch_exist(ip, arch_name))
@@ -740,9 +651,7 @@ bool does_stat_exist (XhdlIp* ip, const char* arch_name, const char* stat_name)
     }
   return false;
 }    
-// }}}
 
-// {{{ const char* get_archs (XhdlIp* ip)
 const char* get_archs (XhdlIp* ip)
 {
   string *return_archs = new string("") ;
@@ -755,9 +664,7 @@ const char* get_archs (XhdlIp* ip)
   
   return return_archs->c_str();
 }    
-// }}}
 
-// {{{ const char* get_sub_blockss (XhdlIp* ip)
 
 const char* get_sub_blocks (XhdlIp* ip, const char* arch_name)
 {
@@ -775,9 +682,7 @@ const char* get_sub_blocks (XhdlIp* ip, const char* arch_name)
   return out_rep->c_str();
 }
 
-// }}}
 
-// {{{ bool rename_inout (XhdlIp* ip, const char* old_name, const char* new_name)
 
 bool rename_inout (XhdlIp* ip, const char* old_name, const char* new_name)
 {
@@ -791,10 +696,8 @@ bool rename_inout (XhdlIp* ip, const char* old_name, const char* new_name)
     }
 }
 
-// }}}
 
 
-// {{{ bool set_inout_params ( ........
 
 bool set_inout_params (XhdlIp* ip, const char* old_name
 		       ,const char* name
@@ -834,9 +737,7 @@ bool set_inout_params (XhdlIp* ip, const char* old_name
     }
 };
 
-// }}}
 
-// {{{ const char* get_inout_comment (XhdlIp* ip, const char* signal_name) 
 
 const char* get_inout_comment (XhdlIp* ip, const char* signal_name)
 {
@@ -850,9 +751,7 @@ const char* get_inout_comment (XhdlIp* ip, const char* signal_name)
   
 }
 
-// }}}
 
-// {{{ bool set_inout_comment (XhdlIp* ip, const char* signal_name, const char* new_comment)
 
 bool set_inout_comment (XhdlIp* ip, const char* signal_name, const char* new_comment)
 {
@@ -867,9 +766,7 @@ bool set_inout_comment (XhdlIp* ip, const char* signal_name, const char* new_com
   
 }
 
-// }}}
 
-// {{{ bool remove_inout (XhdlIp* ip, const char* signal_name)
 
 bool remove_inout (XhdlIp* ip, const char* signal_name)
 {
@@ -892,9 +789,7 @@ bool remove_inout (XhdlIp* ip, const char* signal_name)
   
 }
 
-// }}}
 
-// {{{ bool add_inout ( ........
 
 bool add_inout (XhdlIp* ip
 		,const char* name
@@ -935,9 +830,7 @@ bool add_inout (XhdlIp* ip
     }
 };
 
-// }}}
 
-// {{{ const char* get_all_processes (XhdlIp* ip, const char* arch_name)
 
 /**
  * 
@@ -961,9 +854,7 @@ const char* get_all_processes (XhdlIp* ip, const char* arch_name)
   return return_all_processes->c_str();
 }    
 
-// }}}
 
-// {{{ const char* get_all_maps (XhdlIp* ip, const char* arch_name)
 
 /**
  * 
@@ -987,9 +878,7 @@ const char* get_all_maps (XhdlIp* ip, const char* arch_name)
   return return_all_maps->c_str();
 }    
 
-// }}}
 
-// {{{ const char* get_all_local_signals (XhdlIp* ip, const char* arch_name)
 
 /**
  * 
@@ -1013,9 +902,7 @@ const char* get_all_local_signals (XhdlIp* ip, const char* arch_name)
   return return_all_local_signals.c_str();
 }    
 
-// }}}
 
-// {{{ const char* get_all_labels (XhdlIp* ip, const char* arch_name)
 
 /**
  * 
@@ -1046,9 +933,7 @@ const char* get_all_labels (XhdlIp* ip, const char* arch_name)
   return return_all_labels->c_str();
 }    
 
-// }}}
 
-// {{{ const char* get_process_outputs (XhdlIp* ip, const char* arch_name, const char* process_name)
 
 /**
  * 
@@ -1077,9 +962,7 @@ const char* get_process_outputs (XhdlIp* ip, const char* arch_name, const char* 
   return remove_duplicateds( return_process_outputs.c_str());
 }    
 
-// }}}
 
-// {{{ const char* get_process_inputs (XhdlIp* ip, const char* arch_name, const char* process_name)
 
 /**
  * 
@@ -1108,7 +991,6 @@ const char* get_process_inputs (XhdlIp* ip, const char* arch_name, const char* p
   return remove_duplicateds( return_process_inputs.c_str());
 }    
 
-// }}}
 
 void clean_process_sens_list (XhdlIp* ip, const char* arch_name, const char* process_name)
 {
@@ -1125,7 +1007,6 @@ void clean_process_sens_list (XhdlIp* ip, const char* arch_name, const char* pro
   
 }
 
-// {{{   XhdlStatic* get_stat (XhdlIp* ip, const char* arch_name,const char* stat_name)
 XhdlStatic* get_stat (XhdlIp* ip, const char* arch_name,const char* stat_name)
 {
   XhdlArch * arch ;
@@ -1162,9 +1043,7 @@ XhdlStatic* get_stat (XhdlIp* ip, const char* arch_name,const char* stat_name)
     }*/
   return NULL;
 }    
-// }}}
 
-// {{{ const char* get_static_inputs (XhdlIp* ip, const char* arch_name)
 const char* get_all_static_inout (XhdlIp* ip, const char* arch_name)
 {
   string *return_all_static_inout = new string ("");
@@ -1184,9 +1063,7 @@ const char* get_all_static_inout (XhdlIp* ip, const char* arch_name)
   
   return return_all_static_inout->c_str ();  
 }
-// }}}
 
-// {{{ const char* get_process_inputs (XhdlIp* ip, const char* arch_name)
 const char* get_all_process_inout (XhdlIp* ip, const char* arch_name)
 {
   string *return_all_static_inout = new string ("");
@@ -1204,9 +1081,7 @@ const char* get_all_process_inout (XhdlIp* ip, const char* arch_name)
   
   return return_all_static_inout->c_str ();  
 }
-// }}}
 
-// {{{ bool does_process_exist (XhdlIp* ip, const char* arch_name, const char* process_name)
 
 bool does_process_exist (XhdlIp* ip, const char* arch_name, const char* process_name)
 {
@@ -1228,9 +1103,7 @@ bool does_process_exist (XhdlIp* ip, const char* arch_name, const char* process_
   
 }
 
-// }}}
 
-// {{{ XhdlProcess* get_process (XhdlIp* ip, const char* arch_name, const char* process_name)
 
 XhdlProcess* get_process (XhdlIp* ip, const char* arch_name, const char* process_name)
 {
@@ -1252,9 +1125,7 @@ XhdlProcess* get_process (XhdlIp* ip, const char* arch_name, const char* process
   
 }
 
-// }}}
 
-// {{{ const char* get_xhdl_instruction_inputs  (xhdl_instruction* instruction)
 
 const char* get_xhdl_instruction_inputs  (xhdl_instruction* instruction)
 {
@@ -1273,10 +1144,8 @@ const char* get_xhdl_instruction_inputs  (xhdl_instruction* instruction)
   return return_inputs->c_str();
 }
 
-// }}}
 
 
-// {{{ const char* get_xhdl_simple_instruction_inputs  (xhdl_simple_instruction* simple_instruction)
 
 const char* get_xhdl_simple_instruction_inputs  (xhdl_simple_instruction* simple_instruction)
 {
@@ -1308,9 +1177,7 @@ const char* get_xhdl_simple_instruction_inputs  (xhdl_simple_instruction* simple
   return return_inputs->c_str();
 }
 
-// }}}
 
-// {{{ int get_statics_count (XhdlIp* ip, const char* arch_name)
 
 int get_statics_count (XhdlIp* ip, const char* arch_name)
 {
@@ -1322,9 +1189,7 @@ int get_statics_count (XhdlIp* ip, const char* arch_name)
     } return -1;
 }
 
-// }}}
 
-// {{{ XhdlSignal* get_statics (XhdlIp* ip, const char* arch_name, int stat_index)
 
 XhdlSignal* get_statics (XhdlIp* ip, const char* arch_name, int stat_index)
 {
@@ -1337,9 +1202,7 @@ XhdlSignal* get_statics (XhdlIp* ip, const char* arch_name, int stat_index)
       }
 }
 
-// }}}
 
-// {{{ const char* get_static_outputs ( XhdlIp *ip , const char* arch_name , int index )
 
 const char* get_static_outputs ( XhdlIp *ip , const char* arch_name , int index )
 {
@@ -1359,9 +1222,7 @@ const char* get_static_outputs ( XhdlIp *ip , const char* arch_name , int index 
   return ""; 
 }
 
-// }}}
 
-// {{{ const char* get_static_inputs (XhdlIp *ip , const char* arch_name , int index )
 
 const char* get_static_inputs (XhdlIp *ip , const char* arch_name , int index )
 {
@@ -1384,9 +1245,7 @@ const char* get_static_inputs (XhdlIp *ip , const char* arch_name , int index )
   return "" ;
 } 
 
-// }}}
 
-// {{{ const char* get_static_inputs (XhdlIp *ip , const char* arch_name , const char* output_name )
 
 const char* get_static_inputs (XhdlIp *ip , const char* arch_name , const char* output_name )
 {
@@ -1406,9 +1265,7 @@ const char* get_static_inputs (XhdlIp *ip , const char* arch_name , const char* 
   return "" ;
 } 
 
-// }}}
 
-// {{{ const char* get_affectation_inputs ( XhdlAffectation *aff)
 
 const char* get_affectation_inputs ( XhdlAffectation *aff)
 {
@@ -1425,9 +1282,7 @@ const char* get_affectation_inputs ( XhdlAffectation *aff)
   
 }  
 
-// }}}
 
-// {{{ const char* get_expression_inputs ( XhdlExpression *expr)
 
 const char* get_expression_inputs ( XhdlExpression *expr)
 {
@@ -1455,9 +1310,7 @@ const char* get_expression_inputs ( XhdlExpression *expr)
   
 }
 
-// }}}
 
-// {{{ const char* get_component_inputs ( XhdlIp *ip , const char * component_name )
 
 const char* get_component_inputs ( XhdlIp *ip , const char * component_name )
 {
@@ -1476,12 +1329,10 @@ const char* get_component_inputs ( XhdlIp *ip , const char * component_name )
   
 }
 
-// }}}
 
 
 
 
-// {{{ const char* get_component_outputs ( XhdlIp *ip , const char * component_name )
 
 const char* get_component_outputs ( XhdlIp *ip , const char * component_name )
 {
@@ -1500,18 +1351,14 @@ const char* get_component_outputs ( XhdlIp *ip , const char * component_name )
   return result.c_str(); 
 }
 
-// }}}
 
-// {{{ void ip_clear_params (XhdlIp *ip)
 
 void ip_clear_params (XhdlIp *ip)
 {
   (ip->entity->list_params).clear();
 }
 
-// }}}
 
-// {{{ void ip_add_parameter (XhdlIp *ip, const char * param_name)
 
 bool ip_add_parameter (XhdlIp *ip, const char * param_name)
 {
@@ -1520,11 +1367,9 @@ bool ip_add_parameter (XhdlIp *ip, const char * param_name)
   return true;
 }
 
-// }}}
 
 
 
-// {{{ bool does_ip_exists ( XhdlIp *ip )
 
 bool does_ip_exists ( XhdlIp *ip )
 {
@@ -1534,13 +1379,9 @@ bool does_ip_exists ( XhdlIp *ip )
   
 }
 
-// }}}
 
-// }}} 
 
-// {{{ VHDL generating functions 
 
-// {{{ const char* get_ip_vhdl (XhdlIp* ip)
 
 const char* get_ip_vhdl (XhdlIp* ip)
 {
@@ -1556,9 +1397,7 @@ const char* get_ip_vhdl (XhdlIp* ip)
   
 }
 
-// }}}
 
-// {{{ const char * get_entity_vhdl (XhdlEntity* entity)
 
 const char * get_entity_vhdl (XhdlEntity* entity)
 {
@@ -1627,9 +1466,7 @@ const char * get_entity_vhdl (XhdlEntity* entity)
   
 }
 
-// }}}
 
-// {{{ const char * get_component_vhdl (XhdlEntity* entity)
 
 /*  const char * get_component_vhdl (XhdlEntity* entity)
     {
@@ -1691,9 +1528,7 @@ const char * get_entity_vhdl (XhdlEntity* entity)
     }
 */
 
-// }}}
 
-// {{{ const char* get_libs_vhdl (XhdlIp* ip)
 
 const char* get_libs_vhdl (XhdlIp* ip)
 {
@@ -1707,9 +1542,7 @@ const char* get_libs_vhdl (XhdlIp* ip)
   return out_rtl->c_str();
 }
 
-// }}}
 
-// {{{ const char* get_entity_signal_vhdl (XhdlSignal* signal)
 
 const char* get_entity_signal_vhdl (XhdlSignal* signal)
 {
@@ -1732,9 +1565,7 @@ const char* get_entity_signal_vhdl (XhdlSignal* signal)
   return out_rtl->c_str();
 }
 
-// }}}
 
-// {{{ const char * get_arch_vhdl (XhdlArch* arch)
 
 const char * get_arch_vhdl (XhdlIp *ip , XhdlArch* arch)
 {
@@ -1760,9 +1591,7 @@ const char * get_arch_vhdl (XhdlIp *ip , XhdlArch* arch)
   
 }
 
-// }}}
 
-// {{{ const char* get_arch_signal_vhdl (XhdlSignal* signal)
 
 const char* get_arch_signal_vhdl (XhdlSignal* signal)
 {  // Todo add defined types here !
@@ -1809,9 +1638,7 @@ const char* get_arch_signal_vhdl (XhdlSignal* signal)
       }
 }
 
-// }}}
 
-// {{{ const char * get_body_vhdl (XhdlBody* body)
 
 const char * get_body_vhdl (XhdlIp *ip, XhdlArch *arch , XhdlBody* body)
 {
@@ -1846,9 +1673,7 @@ const char * get_body_vhdl (XhdlIp *ip, XhdlArch *arch , XhdlBody* body)
   
 }
 
-// }}}
 
-// {{{ const char * get_static_assign_vhdl (XhdlStatic* stat)
 
 const char * get_static_assign_vhdl (XhdlStatic* stat)
 {
@@ -1857,9 +1682,7 @@ const char * get_static_assign_vhdl (XhdlStatic* stat)
   return out_rtl->c_str();
   
 }
-// }}}
 
-// {{{ const char * get_affectation_vhdl (XhdlAffectation* stat)
 
 const char * get_affectation_vhdl (XhdlAffectation* aff)
 {
@@ -1884,9 +1707,7 @@ const char * get_affectation_vhdl (XhdlAffectation* aff)
   return out_rtl->c_str();
   
 }
-// }}}
 
-// {{{ const char * get_expression_vhdl (XhdlExpression* expr)
 
 const char * get_expression_vhdl (XhdlExpression* expr)
 {
@@ -1924,9 +1745,7 @@ const char * get_expression_vhdl (XhdlExpression* expr)
   return out_rtl->c_str();
 } 
 
-// }}}
 
-// {{{ const char * get_cond_expression_vhdl (XhdlAffectation::cond_expr* cond_expression)
 
 const char * get_cond_expression_vhdl (XhdlAffectation::cond_expr* cond_expression)
 {
@@ -1940,9 +1759,7 @@ const char * get_cond_expression_vhdl (XhdlAffectation::cond_expr* cond_expressi
   *out_rtl += ")";
   return out_rtl->c_str();
 } 
-// }}}
 
-// {{{ const char* get_portmap_vhdl (XhdlPortMap*  portmap)
 const char* get_portmap_vhdl (XhdlPortMap*  portmap)
 {
   bool first_signal = true;
@@ -1969,11 +1786,9 @@ const char* get_portmap_vhdl (XhdlPortMap*  portmap)
   
   return out_rtl->c_str(); 
 }
-// }}}
 
 //const char* get_simple_instruction_vhdl ( xhdl_simple_instruction *inst )
 
-// {{{   const char * get_simple_instruction_vhdl ( xhdl_simple_instruction *simple_inst )
 
 const char * get_simple_instruction_vhdl ( xhdl_simple_instruction *simple_inst )
 {
@@ -2009,12 +1824,9 @@ const char * get_simple_instruction_vhdl ( xhdl_simple_instruction *simple_inst 
   return out_inst->c_str () ;
 }
 
-// }}}
-
-// }}}
 
 
-// {{{ const char * get_instruction_vhdl ( xhdl_instruction *inst )
+
 const char * get_instruction_vhdl ( xhdl_instruction *inst )
 {
   XhdlArch* arch = inst->get_parent_process()->get_parent_body()->parent;
@@ -2030,9 +1842,7 @@ const char * get_instruction_vhdl ( xhdl_instruction *inst )
   return out_inst->c_str ();
   
 }
-// }}}
 
-// {{{ const char * get_process_vhdl ( XhdlProcess *process )
 const char * get_process_vhdl ( XhdlProcess *process )
 {
   string *out_process = new string () ;
@@ -2063,9 +1873,7 @@ const char * get_process_vhdl ( XhdlProcess *process )
   return out_process->c_str ();
 }
 
-// }}} 
 
-// {{{ const char * get_process_vhdl ( XhdlArch *arch )
 const char* get_sync_process_vhdl ( XhdlIp *ip , XhdlArch *arch )
 {
   string *out_process = new string ();
@@ -2094,22 +1902,15 @@ const char* get_sync_process_vhdl ( XhdlIp *ip , XhdlArch *arch )
   return out_process->c_str () ;
   
 } 
-//}}}
 
-// }}}
 
-// {{{ debug  functions 
-
-// {{{ const char* custom_print (const char* x)
 
 const char* custom_print (const char* x)
 {
   return x; 
 }
 
-// }}}
 
-// {{{ const char* show_args (const char * fmt, ...)
 
 const char* show_args (const char * fmt, ...)
 {
@@ -2118,6 +1919,4 @@ const char* show_args (const char * fmt, ...)
   return out_string.c_str();//y;
 }
 
-// }}}
 
-// }}}

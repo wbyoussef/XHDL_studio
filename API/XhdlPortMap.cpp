@@ -11,6 +11,7 @@
 XhdlPortMap::XhdlPortMap(XhdlBody  *body)
 {
   parent = body;
+  this->setCLASS_TAG("XhdlPortMap");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -66,8 +67,18 @@ void XhdlPortMap::fillObject ( XmlReader *xr)
 	}
     }
 }
+string XhdlPortMap::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void XhdlPortMap::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+
 
 XhdlPortMap::~XhdlPortMap()
 {
-  
+    
 }

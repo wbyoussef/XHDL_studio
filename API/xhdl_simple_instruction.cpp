@@ -17,6 +17,8 @@ xhdl_simple_instruction::xhdl_simple_instruction(xhdl_instruction* instruction)
 {
   parent_instruction = instruction;
   is_root = true;
+  this->setCLASS_TAG("xhdl_simple_instruction");
+
 }
 
 
@@ -25,6 +27,7 @@ xhdl_simple_instruction::xhdl_simple_instruction(xhdl_simple_instruction* simple
   parent_simple_instruction = simple_instruction;
   parent_instruction = simple_instruction->parent_instruction;
   is_root = false;
+  this->setCLASS_TAG("xhdl_simple_instruction");
 }
 
 
@@ -89,8 +92,18 @@ void xhdl_simple_instruction::fillObject(XmlReader *xr)
       this->signal=  xr->getTextData() ;
     }
 }
+string xhdl_simple_instruction::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void xhdl_simple_instruction::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+
 
 xhdl_instruction * xhdl_simple_instruction::get_parent_instruction()
 {
-  return parent_instruction;
+    return parent_instruction;
 }

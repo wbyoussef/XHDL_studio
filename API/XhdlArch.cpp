@@ -14,6 +14,7 @@ XhdlArch::XhdlArch(XhdlIp* ip)
 {
   parent = ip;
   this->body = new XhdlBody (this); 
+  this->setCLASS_TAG("XhdlArch");
   
   
 }
@@ -118,10 +119,30 @@ void XhdlArch::fillObject(XmlReader *xr)
   
   
 }
+string XhdlArch::getFull_name() const
+{
+    return full_name;
+}
+
+void XhdlArch::setFull_name(const string &value)
+{
+    full_name = value;
+}
+string XhdlArch::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void XhdlArch::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+
+
 
 XhdlArch::~XhdlArch()
 {
-  
+    
 }
 
 

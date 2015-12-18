@@ -10,6 +10,10 @@
 //
 //
 
+#ifndef NINJA_DEFINE_H
+#define NINJA_DEFINE_H
+#include "xhdl_atom.h"
+
 #define XHDLSTATIC_AFFECT 1 			// static assgn type is affect
 
 #define XHDLEXPRESSION_TYPE_SIG_NAME	1       //expression is signal name
@@ -31,3 +35,9 @@
 #define XHDL_SIMPLE_INSTRUCTION_SIGNAL		1
 #define XHDL_SIMPLE_INSTRUCTION_NUMBER		2
 #define XHDL_SIMPLE_INSTRUCTION_NULL		3
+
+namespace XHDL {
+enum XHDL_GUI_TAG {XHDL_NONE,XHDL_ENTITTY,XHDL_ARCH,XHDL_SIGNAL,XHDL_PARAMETER, XHDL_CLOCK};
+}
+
+#endif

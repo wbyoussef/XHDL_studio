@@ -9,17 +9,15 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-// {{{ XhdlAffectation::XhdlAffectation()
 
 XhdlAffectation::XhdlAffectation()
 {
+	this->setCLASS_TAG("XhdlAffectation");
   
 }
 
-// }}}
 
 
-// {{{ void XhdlAffectation::fillObject (XmlReader *xr)
 
 void XhdlAffectation::fillObject (XmlReader *xr)
 {
@@ -128,14 +126,31 @@ void XhdlAffectation::fillObject (XmlReader *xr)
     
   */
 }
+string XhdlAffectation::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
 
-// }}}
+void XhdlAffectation::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+string XhdlAffectation::getCLASS_NAME() const
+{
+    return CLASS_NAME;
+}
 
-// {{{ XhdlAffectation::~XhdlAffectation()
+void XhdlAffectation::setCLASS_NAME(const string &value)
+{
+    CLASS_NAME = value;
+}
+
+
+
+
 
 XhdlAffectation::~XhdlAffectation()
 {
-  
+    
 }
 
-// }}}

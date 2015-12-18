@@ -15,6 +15,8 @@
 
 xhdl_if_statement::xhdl_if_statement()
 {
+	this->setCLASS_TAG("xhdl_if_statement");
+
 } 
 
 
@@ -56,3 +58,13 @@ void xhdl_if_statement::fillObject(XmlReader *xr)
       xr->moveToNextSibling();
     }
 }
+string xhdl_if_statement::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void xhdl_if_statement::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+

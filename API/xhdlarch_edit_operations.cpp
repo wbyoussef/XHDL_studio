@@ -8,7 +8,6 @@
 
 /// Doc : previewed operations
 
-// {{{ Processes
 bool xhdl_edit_new_process (XhdlIp* ip, const char* arch_name, const char* process_name)
 {
   XhdlArch* arch = get_arch (ip,arch_name);
@@ -22,7 +21,6 @@ bool xhdl_edit_new_process (XhdlIp* ip, const char* arch_name, const char* proce
   return true;
 }
 
-// {{{ delete 
 
 ///		=> delete
 bool xhdl_edit_delete_process (XhdlIp* ip, const char* arch_name, const char* process_name)
@@ -46,8 +44,6 @@ bool xhdl_edit_delete_process (XhdlIp* ip, const char* arch_name, const char* pr
   return true; 
 }
 
-// }}}
-// {{{ Copy 
 
 ///		=> Copy
 
@@ -71,8 +67,6 @@ XhdlProcess* xhdl_edit_copy_process (XhdlIp* ip, const char* arch_name, const ch
   return new_process;
 }
 
-// }}}
-// {{{ Duplicate 
 bool xhdl_edit_duplicate_process (XhdlIp* ip, const char* arch_name, const char* process_orig_name, const char* process_dest_name)
   
 {
@@ -86,9 +80,7 @@ bool xhdl_edit_duplicate_process (XhdlIp* ip, const char* arch_name, const char*
   return true;
 }
 
-// }}}
 
-// {{{ todo 
 
 ///		=> Paste 
 ///		=> Cut
@@ -104,13 +96,9 @@ bool xhdl_process_add_input (XhdlIp* ip, const char* arch_name, const char* proc
 ///		=> rename input 
 ///		=> rename output
 
-// }}}
 
-// }}}
 
-// {{{ Port maps
 
-// {{{ delete
 
 ///		=> delete
 bool xhdl_edit_delete_portmap (XhdlIp* ip, const char* arch_name, const char* portmap_name)
@@ -132,8 +120,6 @@ bool xhdl_edit_delete_portmap (XhdlIp* ip, const char* arch_name, const char* po
   return true; 
 }
 
-// }}}
-// {{{ Copy
 
 ///		=> Copy
 
@@ -156,8 +142,6 @@ XhdlPortMap* xhdl_edit_copy_portmap (XhdlIp* ip, const char* arch_name, const ch
   return new_portmap;
 }
 
-// }}}
-// {{{ Duplicate 
 bool xhdl_edit_duplicate_portmap (XhdlIp* ip, const char* arch_name, const char* portmap_orig_name, const char* portmap_dest_name)
 {
   XhdlArch* arch = get_arch (ip,arch_name);
@@ -170,9 +154,7 @@ bool xhdl_edit_duplicate_portmap (XhdlIp* ip, const char* arch_name, const char*
   return true;
 }
 
-// }}}
 
-// {{{ todo ....
 
 ///		=> Copy
 ///		=> Paste 
@@ -182,13 +164,9 @@ bool xhdl_edit_duplicate_portmap (XhdlIp* ip, const char* arch_name, const char*
 ///		=> rename input 
 ///		=> rename output
 
-// }}}
 
-// }}}
 
-// {{{ static assignements 
 
-// {{{ delete 
 
 ///		=> delete
 bool xhdl_edit_delete_stat (XhdlIp* ip, const char* arch_name, const char* stat_name)
@@ -212,8 +190,6 @@ bool xhdl_edit_delete_stat (XhdlIp* ip, const char* arch_name, const char* stat_
   return true; 
 }
 
-// }}}
-// {{{ Copy
 
 ///		=> Copy
 
@@ -236,9 +212,7 @@ XhdlStatic* xhdl_edit_copy_stat (XhdlIp* ip, const char* arch_name, const char* 
   return new_stat;
 }
 
-// }}}
 
-// {{{ Duplicate 
 bool xhdl_edit_duplicate_stat (XhdlIp* ip, const char* arch_name, const char* stat_orig_name, const char* stat_dest_name)
 {
   XhdlArch* arch = get_arch (ip,arch_name);
@@ -251,10 +225,8 @@ bool xhdl_edit_duplicate_stat (XhdlIp* ip, const char* arch_name, const char* st
   return true;
 }
 
-// }}}
 
 
-// {{{ todo .... 
 
 ///		=> Copy
 ///		=> Paste 
@@ -264,6 +236,4 @@ bool xhdl_edit_duplicate_stat (XhdlIp* ip, const char* arch_name, const char* st
 ///		=> rename input 
 ///		=> rename output
 
-// }}}
 
-// }}}

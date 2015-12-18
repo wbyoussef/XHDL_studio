@@ -8,11 +8,12 @@
 // #include<qdom.h>
 
 #include<string>
+#include "xhdl_atom.h"
 using namespace std;
 class XhdlBody;
 
 
-class XhdlPlain  
+class XhdlPlain   : public xhdl_atom
 {
 public:
 	XhdlPlain(XhdlBody  *body);
@@ -22,9 +23,15 @@ public:
 	string language;
 	string *text;
 
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
+
 private :
-    // localisation 
-	XhdlBody  * parent ;
+    // localisation
+    XhdlBody  * parent ;
+
+private :
+    string CLASS_TAG;
 };
 
 #endif 

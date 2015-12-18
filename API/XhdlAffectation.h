@@ -9,6 +9,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include "xhdl_atom.h"
 
 class XhdlExpression; 
 class XmlReader;
@@ -16,7 +17,7 @@ class XmlReader;
 using namespace std;
 
 
-class XhdlAffectation  
+class XhdlAffectation   : public xhdl_atom
 {
 
   public :
@@ -39,7 +40,15 @@ public:
 	vector <cond_expr*> cond_expressions;
 
 	int type;
-	
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
+
+    string getCLASS_NAME() const;
+    void setCLASS_NAME(const string &value);
+
+private :
+    string CLASS_TAG;
+    string CLASS_NAME;
 
 };
 

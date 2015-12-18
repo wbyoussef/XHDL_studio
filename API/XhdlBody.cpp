@@ -11,6 +11,7 @@
 XhdlBody::XhdlBody(XhdlArch* arch)
 {
   parent = arch ; 
+  this->setCLASS_TAG("XhdlBody");
 }
 
 
@@ -95,8 +96,28 @@ void XhdlBody::fillObject(XmlReader *xr)
   
   
 }
+string XhdlBody::getFull_name() const
+{
+    return full_name;
+}
+
+void XhdlBody::setFull_name(const string &value)
+{
+    full_name = value;
+}
+string XhdlBody::getCLASS_TAG() const
+{
+    return CLASS_TAG;
+}
+
+void XhdlBody::setCLASS_TAG(const string &value)
+{
+    CLASS_TAG = value;
+}
+
+
 
 XhdlBody::~XhdlBody()
 {
-  
+    
 }

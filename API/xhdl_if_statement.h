@@ -15,6 +15,7 @@
 #include <string>
 #include <vector>
 #include "XmlReader.h"
+#include "xhdl_atom.h"
 
 using namespace std;
 class xhdl_instruction;
@@ -22,7 +23,8 @@ class XhdlExpression;
 /**
 @author walid
 */
-class xhdl_if_statement{
+class xhdl_if_statement : public xhdl_atom
+{
 public:
     xhdl_if_statement();
 
@@ -32,6 +34,12 @@ public:
 	XhdlExpression *condition;
 	vector<xhdl_instruction*> true_instruntion;
 	vector<xhdl_instruction*> false_instruntion;
+
+    string getCLASS_TAG() const;
+    void setCLASS_TAG(const string &value);
+
+private :
+    string CLASS_TAG;
 };
 
 #endif

@@ -38,7 +38,6 @@ extern bool use_folders;
 
 extern XhdlIp* main_ip;
 
-// {{{  void do_use_ieee_libs (); 
 
 /*! \fn void do_use_ieee_libs ();
     \brief This function sets including ieee libs in VHDL
@@ -48,9 +47,7 @@ extern XhdlIp* main_ip;
 */
 void do_use_ieee_libs ();
 
-// }}} 
 
-// {{{  void do_not_use_ieee_libs ();
 
 /*! \fn void do_not_use_ieee_libs ();
     \brief This function un-sets including ieee libs in VHDL
@@ -60,29 +57,21 @@ void do_use_ieee_libs ();
 */
 void do_not_use_ieee_libs ();
 
-// }}}
 
-// {{{ void Tokenize(const string& str, vector<string>& tokens,const string& delimiters = " ");
 
 void Tokenize(const string& str, vector<string>& tokens,const string& delimiters = " ");
 
-// }}}
 
-// {{{ const char* remove_duplicateds (const char* data)
 const char* remove_duplicateds (const char* data) ;
-// }}}
 
 
-// {{{  string simplify_white_spaces ( string str );
 /*! \fn string simplify_white_spaces ( string str);
     \brief elliminate white spaces from string str
     \param str : string
     \return string
 */
 string simplify_white_spaces ( string str ) ;
-// }}}
 
-// {{{  bool are_ieee_libs_used () ;
 /*! \fn bool are_ieee_libs_used () ;
     \brief This function returns wether ieee libs will be included 
     in VHDL generation mode.
@@ -91,9 +80,7 @@ string simplify_white_spaces ( string str ) ;
 */
 bool are_ieee_libs_used () ;
 
-// }}}
 
-// {{{  void do_use_folders ();
 
 /*! \fn void do_use_folders ();
     \brief this functions enables using folders in VHDL generated
@@ -103,9 +90,7 @@ bool are_ieee_libs_used () ;
 */
 void do_use_folders ();
 
-// }}}
 
-// {{{  void do_not_use_folders ();
 
 /*! \fn void do_not_use_folders ();
     \brief 
@@ -116,9 +101,7 @@ void do_use_folders ();
 */
 void do_not_use_folders ();
 
-// }}}
 
-// {{{  bool are_folders_used () ;
 
 /*! \fn bool are_folders_used () ;
     \brief this function return a boolean value indicating wether
@@ -128,10 +111,8 @@ void do_not_use_folders ();
 */
 bool are_folders_used () ;
 
-// }}}
 
 
-// {{{  XhdlIp* create_ip (char* name);
 
 /*! \fn XhdlIp* create_ip (char* name);
     \brief this function creates an empty IP.
@@ -140,9 +121,7 @@ bool are_folders_used () ;
 */
 XhdlIp* create_ip (char* name);
 
-// }}}
 
-// {{{  XhdlEntity* ip_get_entity (XhdlIp* ip);
 
 /*! \fn XhdlEntity* ip_get_entity (XhdlIp* ip);
     \brief returns a pointer to the IP's entity description
@@ -151,9 +130,7 @@ XhdlIp* create_ip (char* name);
 */
 XhdlEntity* ip_get_entity (XhdlIp* ip = main_ip);
 
-// }}}
 
-// {{{  XhdlEntity* ip_set_entity (XhdlIp* ip, XhdlEntity* entity);
 
 /*! \fn XhdlEntity* ip_set_entity (XhdlIp* ip, XhdlEntity* entity);
     \brief 
@@ -162,9 +139,7 @@ XhdlEntity* ip_get_entity (XhdlIp* ip = main_ip);
 */
 // XhdlEntity* ip_set_entity (XhdlIp* ip = main_ip, XhdlEntity* entity);
 
-// }}}
 
-// {{{  void ip_set_name (XhdlIp* ip, char* name );
 
 /*! \fn void ip_set_name (XhdlIp* ip, char* name );
     \brief 
@@ -173,9 +148,7 @@ XhdlEntity* ip_get_entity (XhdlIp* ip = main_ip);
 */
 void ip_set_name (XhdlIp* ip = main_ip, char* name ="" );
 
-// }}}
 
-// {{{ check_result_t * validate_xml_vs_dtd (const char* xml_name, const char* dtd_name);
 
 /*! \fn check_result_t * validate_xml_vs_dtd (const char* xml_name, const char* dtd_name);
     \brief 
@@ -185,9 +158,7 @@ void ip_set_name (XhdlIp* ip = main_ip, char* name ="" );
 
 check_result_t * validate_xml_vs_dtd (const char* xml_name, const char* dtd_name);
 
-// }}}
 
-// {{{  const char* ip_get_name (const XhdlIp* ip );
 
 /*! \fn const char* ip_get_name (const XhdlIp* ip );
     \brief 
@@ -196,9 +167,7 @@ check_result_t * validate_xml_vs_dtd (const char* xml_name, const char* dtd_name
 */
 const char* ip_get_name (const XhdlIp* ip= main_ip );
 
-// }}}
 
-// {{{  XhdlEntity* create_entity (char* name);
 
 /*! \fn XhdlEntity* create_entity (char* name);
     \brief 
@@ -207,9 +176,7 @@ const char* ip_get_name (const XhdlIp* ip= main_ip );
 */
 XhdlEntity* create_entity (char* name);
 
-// }}}
 
-// {{{  const char * ip_get_documentation (const XhdlIp* ip );
 
 /*! \fn const char * ip_get_documentation (const XhdlIp* ip );
     \brief 
@@ -218,9 +185,7 @@ XhdlEntity* create_entity (char* name);
 */
 const char * ip_get_documentation (const XhdlIp* ip );
 
-// }}}
 
-// {{{  void ip_set_documentation (XhdlIp* ip, const char * doc );
 
 /*! \fn void ip_set_documentation (XhdlIp* ip, const char * doc );
     \brief 
@@ -229,9 +194,7 @@ const char * ip_get_documentation (const XhdlIp* ip );
 */
 void ip_set_documentation (XhdlIp* ip, const char * doc );
 
-// }}}
 
-// {{{  bool ip_open_valid_xml_file (XhdlIp* ip, const char *  filename,  const char *  dtd_file);
 
 /*! \fn bool ip_open_valid_xml_file (XhdlIp* ip, const char *  filename,  const char *  dtd_file);
     \brief 
@@ -240,9 +203,7 @@ void ip_set_documentation (XhdlIp* ip, const char * doc );
 */
 bool ip_open_valid_xml_file (XhdlIp* ip, const char *  filename,  const char *  dtd_file);
 
-// }}}
 
-// {{{  bool ip_open_xml_file (XhdlIp* ip, char *  filename);
 
 /*! \fn bool ip_open_xml_file (XhdlIp* ip, char *  filename);
     \brief 
@@ -251,9 +212,7 @@ bool ip_open_valid_xml_file (XhdlIp* ip, const char *  filename,  const char *  
 */
 bool ip_open_xml_file (XhdlIp* ip, char *  filename);
 
-// }}}
 
-// {{{  void ip_open_stream (XhdlIp* ip, const char * stream);
 
 /*! \fn void ip_open_stream (XhdlIp* ip, const char * stream);
     \brief 
@@ -262,10 +221,8 @@ bool ip_open_xml_file (XhdlIp* ip, char *  filename);
 */
 void ip_open_stream (XhdlIp* ip, const char * stream);
 
-// }}}
 
 
-// {{{  const char* ip_describe_entity (XhdlIp* ip);
 
 /*! \fn const char* ip_describe_entity (XhdlIp* ip);
     \brief 
@@ -274,9 +231,7 @@ void ip_open_stream (XhdlIp* ip, const char * stream);
 */
 const char* ip_describe_entity (XhdlIp* ip);
 
-// }}}
 
-// {{{  const char* entity_describe (const XhdlEntity* entity);
 
 /*! \fn const char* entity_describe (const XhdlEntity* entity);
     \brief 
@@ -285,9 +240,7 @@ const char* ip_describe_entity (XhdlIp* ip);
 */
 const char* entity_describe (const XhdlEntity* entity);
 
-// }}}
 
-// {{{  bool entity_find_signal(XhdlEntity* entity, XhdlSignal* signal);
 
 /*! \fn bool entity_find_signal(XhdlEntity* entity, XhdlSignal* signal);
     \brief 
@@ -296,9 +249,7 @@ const char* entity_describe (const XhdlEntity* entity);
 */
 bool entity_find_signal(XhdlEntity* entity, XhdlSignal* signal);
 
-// }}}
 
-// {{{  bool entity_add_signal(XhdlEntity* entity, XhdlSignal* signal);
 
 /*! \fn bool entity_add_signal(XhdlEntity* entity, XhdlSignal* signal);
     \brief 
@@ -307,9 +258,7 @@ bool entity_find_signal(XhdlEntity* entity, XhdlSignal* signal);
 */
 bool entity_add_signal(XhdlEntity* entity, XhdlSignal* signal);
 
-// }}}
 
-// {{{  const char* get_clocks (XhdlIp* ip);
 
 /*! \fn const char* get_clocks (XhdlIp* ip);
     \brief 
@@ -318,9 +267,7 @@ bool entity_add_signal(XhdlEntity* entity, XhdlSignal* signal);
 */
 const char* get_clocks (XhdlIp* ip);
 
-// }}}
 
-// {{{  const char* get_resets (XhdlIp* ip);
 
 /*! \fn const char* get_resets (XhdlIp* ip);
     \brief 
@@ -329,9 +276,7 @@ const char* get_clocks (XhdlIp* ip);
 */
 const char* get_resets (XhdlIp* ip);
 
-// }}}
 
-// {{{  const char* get_normal_signals (XhdlIp* ip);
 
 /*! \fn const char* get_normal_signals (XhdlIp* ip);
     \brief 
@@ -340,9 +285,7 @@ const char* get_resets (XhdlIp* ip);
 */
 const char* get_normal_signals (XhdlIp* ip);
 
-// }}}
 
-// {{{  const char* get_all_signals (XhdlIp* ip);
 
 /*! \fn const char* get_all_signals (XhdlIp* ip);
     \brief 
@@ -351,9 +294,7 @@ const char* get_normal_signals (XhdlIp* ip);
 */
 const char* get_all_signals (XhdlIp* ip);
 
-// }}}
 
-// {{{  const char* get_all_params (XhdlIp* ip);
 
 /*! \fn const char* get_all_params (XhdlIp* ip);
     \brief 
@@ -362,9 +303,7 @@ const char* get_all_signals (XhdlIp* ip);
 */
 const char* get_all_params (XhdlIp* ip);
 
-// }}}
 
-// {{{  const char* get_all_signals (XhdlIp* ip);
 
 /*! \fn const char* get_all_arch_signals (XhdlIp* ip , const char *arch_name);
     \brief  
@@ -373,9 +312,7 @@ const char* get_all_params (XhdlIp* ip);
 */
 const char* get_all_arch_signals (XhdlIp* ip , const char* arch_name);
 
-// }}}
 
-// {{{  XhdlSignal* get_signal (XhdlIp* ip, const char* signal_name);
 
 /*! \fn XhdlSignal* get_signal (XhdlIp* ip, const char* signal_name);
     \brief 
@@ -384,9 +321,7 @@ const char* get_all_arch_signals (XhdlIp* ip , const char* arch_name);
 */
 XhdlSignal* get_signal (XhdlIp* ip, const char* signal_name);
 
-// }}}
 
-// {{{  vector<XhdlSignal*> get_signals (XhdlIp* ip, const char* arch_name);
 
 /*! \fn vector<XhdlSignal*> get_signals (XhdlIp* ip, const char* arch_name);
     \brief 
@@ -395,9 +330,7 @@ XhdlSignal* get_signal (XhdlIp* ip, const char* signal_name);
 */
 vector<XhdlSignal*> get_signals (XhdlIp* ip, const char* arch_name);
 
-// }}}
 
-// {{{  vector<XhdlEnumType*> get_enum_types (XhdlIp* ip, const char* arch_name);
 
 /*! \fn vector<XhdlEnumType*> get_enum_types (XhdlIp* ip, const char* arch_name);
     \brief return all enum types defined by user
@@ -406,9 +339,7 @@ vector<XhdlSignal*> get_signals (XhdlIp* ip, const char* arch_name);
 */
 vector<XhdlEnumType*> get_enum_types (XhdlIp* ip, const char* arch_name);
 
-// }}}
 
-// {{{  bool does_inout_exist (XhdlIp* ip, const char* signal_name);
 
 /*! \fn bool does_inout_exist (XhdlIp* ip, const char* signal_name);
     \brief 
@@ -417,9 +348,7 @@ vector<XhdlEnumType*> get_enum_types (XhdlIp* ip, const char* arch_name);
 */
 bool does_inout_exist (XhdlIp* ip, const char* signal_name);
 
-// }}}
 
-// {{{  bool does_param_exist (XhdlIp* ip, const char* signal_name);
 
 /*! \fn bool does_param_exist (XhdlIp* ip, const char* signal_name);
     \brief 
@@ -428,9 +357,7 @@ bool does_inout_exist (XhdlIp* ip, const char* signal_name);
 */
 bool does_param_exist (XhdlIp* ip, const char* signal_name);
 
-// }}}
 
-// {{{  bool does_signal_exist (XhdlIp* ip, const char* signal_name);
 /*! \fn bool does_signal_exist (XhdlIp* ip, const char* signal_name);
     \brief look for  sig_name in architecture
     \param 
@@ -438,23 +365,19 @@ bool does_param_exist (XhdlIp* ip, const char* signal_name);
 */
 bool does_signal_exist (XhdlIp* ip, const char * arch_name ,const char* signal_name);
 
-// }}}
 
 
 
-// {{{  XhdlSignal* get_signal (XhdlIp* ip, const char * arch_name ,const char* signal_name) ;
 /*! \fn XhdlSignal* get_signal (XhdlIp* ip, const char * arch_name ,const char* signal_name) ;
     \brief look for  sig_name in architecture
     \param 
     \return 
 */
   XhdlSignal* get_signal (XhdlIp* ip, const char * arch_name ,const char* signal_name) ;
-// }}}
 
 
 
 
-// {{{  XhdlPortMap* get_map (XhdlIp* ip, const char* arch_name,const char* map_name)
 
 /*! \fn XhdlPortMap* get_map (XhdlIp* ip, const char* arch_name,const char* map_name)
     \brief 
@@ -463,9 +386,7 @@ bool does_signal_exist (XhdlIp* ip, const char * arch_name ,const char* signal_n
 */
 XhdlPortMap* get_map (XhdlIp* ip, const char* arch_name,const char* map_name);
 
-// }}}
 
-// {{{  XhdlIp* include_map (XhdlIp* ip, const char* arch_name,const char* map_name)
 
 /*! \fn XhdlIp* include_map (XhdlIp* ip, const char* arch_name,const char* map_name)
     \brief 
@@ -473,10 +394,8 @@ XhdlPortMap* get_map (XhdlIp* ip, const char* arch_name,const char* map_name);
     \return 
 */
 XhdlIp* include_map (XhdlIp* ip, const char* arch_name,const char* map_name);
-// }}}
 
 
-// {{{  XhdlArch* get_arch (XhdlIp* ip, const char* arch_name);
 
 /*! \fn XhdlArch* get_arch (XhdlIp* ip, const char* arch_name);
     \brief 
@@ -485,9 +404,7 @@ XhdlIp* include_map (XhdlIp* ip, const char* arch_name,const char* map_name);
 */
 XhdlArch* get_arch (XhdlIp* ip, const char* arch_name);
 
-// }}}
 
-// {{{  bool does_arch_exist (XhdlIp* ip, const char* arch_name);
 
 /*! \fn bool does_arch_exist (XhdlIp* ip, const char* arch_name);
     \brief 
@@ -496,9 +413,7 @@ XhdlArch* get_arch (XhdlIp* ip, const char* arch_name);
 */
 bool does_arch_exist (XhdlIp* ip, const char* arch_name);
 
-// }}}
 
-// {{{  does_map_exist (XhdlIp* ip, const char * arch_name, const char* map_name);
 
 /*! \fn does_map_exist (XhdlIp* ip, const char * arch_name, const char* map_name);
     \brief 
@@ -507,9 +422,7 @@ bool does_arch_exist (XhdlIp* ip, const char* arch_name);
 */
 bool does_map_exist (XhdlIp* ip, const char * arch_name, const char* map_name);
 
-// }}}
 
-// {{{  does_stat_exist (XhdlIp* ip, const char * arch_name, const char* stat_name);
 
 /*! \fn does_stat_exist (XhdlIp* ip, const char * arch_name, const char* stat_name);
     \brief 
@@ -517,9 +430,7 @@ bool does_map_exist (XhdlIp* ip, const char * arch_name, const char* map_name);
     \return 
 */
 bool does_stat_exist (XhdlIp* ip, const char* arch_name, const char* stat_name);
-// }}}
 
-// {{{  const char* get_archs (XhdlIp* ip);
 
 /*! \fn const char* get_archs (XhdlIp* ip);
     \brief 
@@ -528,10 +439,8 @@ bool does_stat_exist (XhdlIp* ip, const char* arch_name, const char* stat_name);
 */
 const char* get_archs (XhdlIp* ip);
 
-// }}}
 
 
-// {{{  const char* get_sub_blocks (XhdlIp* ip, const char* arch_name);
 
 /*! \fn const char* get_sub_blocks (XhdlIp* ip, const char* arch_name);
     \brief 
@@ -540,9 +449,7 @@ const char* get_archs (XhdlIp* ip);
 */
 const char* get_sub_blocks (XhdlIp* ip, const char* arch_name);
 
-// }}}
 
-// {{{ bool rename_inout (XhdlIp* ip, const char* old_name, const char* new_name)
 
 /*! \fn bool rename_inout (XhdlIp* ip, const char* old_name, const char* new_name)
     \brief 
@@ -551,9 +458,7 @@ const char* get_sub_blocks (XhdlIp* ip, const char* arch_name);
 */
 bool rename_inout (XhdlIp* ip, const char* old_name, const char* new_name);
 
-// }}}
 
-// {{{ bool set_inout_params ( ........
  
 bool set_inout_params (XhdlIp* ip, const char* old_name
                           ,const char* name
@@ -569,27 +474,19 @@ bool set_inout_params (XhdlIp* ip, const char* old_name
                           ,const char* comment
                        );
 
-// }}}
 
-// {{{ const char* get_inout_comment (XhdlIp* ip, const char* signal_name);
 
 const char* get_inout_comment (XhdlIp* ip, const char* signal_name);
 
-// }}}
 
-// {{{ bool set_inout_comment (XhdlIp* ip, const char* signal_name, const char* new_comment);
 
 bool set_inout_comment (XhdlIp* ip, const char* signal_name, const char* new_comment);
 
-// }}}
 
-// {{{ bool remove_inout (XhdlIp* ip, const char* signal_name);
 
 bool remove_inout (XhdlIp* ip, const char* signal_name);
 
-// }}}
 
-// {{{ bool add_inout ( ........
  
 bool add_inout (           XhdlIp* ip
                           ,const char* name
@@ -605,9 +502,7 @@ bool add_inout (           XhdlIp* ip
                           ,const char* comment
                        );
 
-// }}}
 
-// {{{ const char* get_all_processes (XhdlIp* ip, const char* arch_name);
 
 /*! \fn const char* get_all_processes (XhdlIp* ip, const char* arch_name);
     \brief this function lists all processes that are implemented in <i>arch_name</i>
@@ -618,9 +513,7 @@ bool add_inout (           XhdlIp* ip
 */
 const char* get_all_processes (XhdlIp* ip, const char* arch_name);
 
-// }}}
 
-// {{{ const char* get_all_maps (XhdlIp* ip, const char* arch_name);
 
 /*! \fn const char* get_all_maps (XhdlIp* ip, const char* arch_name);
     \brief this function lists all maps that are implemented in <i>arch_name</i>
@@ -631,9 +524,7 @@ const char* get_all_processes (XhdlIp* ip, const char* arch_name);
 */
 const char* get_all_maps (XhdlIp* ip, const char* arch_name);
 
-// }}}
 
-// {{{ const char* get_all_labels (XhdlIp* ip, const char* arch_name);
 
 /*! \fn const char* get_all_labels (XhdlIp* ip, const char* arch_name);
     \brief this function lists all labels that are implemented in <i>arch_name</i>
@@ -644,9 +535,7 @@ const char* get_all_maps (XhdlIp* ip, const char* arch_name);
 */
 const char* get_all_labels (XhdlIp* ip, const char* arch_name);
 
-// }}}
 
-// {{{ const char* get_process_outputs (XhdlIp* ip, const char* arch_name, const char* process_name)
 /*! \fn const char* get_process_outputs (XhdlIp* ip, const char* arch_name, const char* process_name)
     \brief this function lists all processes that are implemented in <i>arch_name</i>
     of the <i>ip</i>
@@ -655,9 +544,7 @@ const char* get_all_labels (XhdlIp* ip, const char* arch_name);
     \return selected architecture's list of processes
 */
 const char* get_process_outputs (XhdlIp* ip, const char* arch_name, const char* process_name);
-// }}}
 
-// {{{ const char* get_process_inputs (XhdlIp* ip, const char* arch_name, const char* process_name)
 /*! \fn const char* get_process_inputs (XhdlIp* ip, const char* arch_name, const char* process_name)
     \brief this function lists all processes that are implemented in <i>arch_name</i>
     of the <i>ip</i>
@@ -666,10 +553,8 @@ const char* get_process_outputs (XhdlIp* ip, const char* arch_name, const char* 
     \return selected architecture's list of processes
 */
 const char* get_process_inputs (XhdlIp* ip, const char* arch_name, const char* process_name);
-// }}}
 
 
-// {{{ void clean_process_sens_list (XhdlIp* ip, const char* arch_name, const char* process_name);
 /*! \fn 
     \brief 
     \param
@@ -677,12 +562,10 @@ const char* get_process_inputs (XhdlIp* ip, const char* arch_name, const char* p
     \return 
 */
 void clean_process_sens_list (XhdlIp* ip, const char* arch_name, const char* process_name);
-// }}}
 
 
   XhdlStatic* get_stat (XhdlIp* ip, const char* arch_name,const char* stat_name);
 
-// {{{ const char* get_static_inout (XhdlIp* ip, const char* arch_name)
 
 /*! \fn const char* get_all_static_inout (XhdlIp* ip, const char* arch_name)
     \brief this function lists all processes that are implemented in <i>arch_name</i>
@@ -693,9 +576,7 @@ void clean_process_sens_list (XhdlIp* ip, const char* arch_name, const char* pro
 */
 const char* get_all_static_inout (XhdlIp* ip, const char* arch_name);
 
-// }}}
 
-// {{{ const char* get_process_inout (XhdlIp* ip, const char* arch_name)
 
 /*! \fn const char* get_all_process_inout (XhdlIp* ip, const char* arch_name)
     \brief this function lists all processes that are implemented in <i>arch_name</i>
@@ -706,7 +587,6 @@ const char* get_all_static_inout (XhdlIp* ip, const char* arch_name);
 */
 const char* get_all_process_inout (XhdlIp* ip, const char* arch_name);
 
-// }}}
 
 //added by in 7 777777777777777777777777777777777777777777777777777777777777777777777777777777
 bool does_ip_exists ( XhdlIp *ip );
@@ -722,7 +602,6 @@ bool ip_add_parameter (XhdlIp *ip, const char * param_name);
 //777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
 
 
-// {{{ bool does_process_exist (XhdlIp* ip, const char* arch_name, const char* process_name)
 
 /*! \fn bool does_process_exist (XhdlIp* ip, const char* arch_name, const char* process_name)
     \brief 
@@ -732,9 +611,7 @@ bool ip_add_parameter (XhdlIp *ip, const char * param_name);
 */
 bool does_process_exist (XhdlIp* ip, const char* arch_name, const char* process_name);
 
-// }}}
 
-// {{{ bool get_process (XhdlIp* ip, const char* arch_name, const char* process_name)
 
 /*! \fn XhdlProcess* get_process (XhdlIp* ip, const char* arch_name, const char* process_name)
     \brief 
@@ -744,35 +621,25 @@ bool does_process_exist (XhdlIp* ip, const char* arch_name, const char* process_
 */
 XhdlProcess* get_process (XhdlIp* ip, const char* arch_name, const char* process_name);
 
-// }}}
 
 
-// {{{ const char* get_xhdl_instruction_inputs  (xhdl_instruction* instruction);
 
 const char* get_xhdl_instruction_inputs  (xhdl_instruction* instruction);
 
-// }}}
 
-// {{{ const char* get_xhdl_simple_instruction_inputs  (xhdl_simple_instruction* simple_instruction);
 
 const char* get_xhdl_simple_instruction_inputs  (xhdl_simple_instruction* simple_instruction);
 
-// }}}
 
-// {{{ int get_statics_count (XhdlIp* ip, const char* arch_name);
 
 int get_statics_count (XhdlIp* ip, const char* arch_name);
 
-// }}}
 
-// {{{ XhdlSignal* get_statics (XhdlIp* ip, const char* arch_name, int stat_index)
 XhdlSignal* get_statics (XhdlIp* ip, const char* arch_name, int stat_index);
-// }}}
 
 
 // VHDL generating functions 
 
-// {{{  const char* get_ip_vhdl (XhdlIp* ip);
 
 /*! \fn const char* get_ip_vhdl (XhdlIp* ip);
     \brief 
@@ -781,9 +648,7 @@ XhdlSignal* get_statics (XhdlIp* ip, const char* arch_name, int stat_index);
 */
 const char* get_ip_vhdl (XhdlIp* ip);
 
-// }}}
 
-// {{{  const char* get_entity_vhdl (XhdlEntity* entity);
 
 /*! \fn const char* get_entity_vhdl (XhdlEntity* entity);
     \brief 
@@ -792,13 +657,11 @@ const char* get_ip_vhdl (XhdlIp* ip);
 */
 const char* get_entity_vhdl (XhdlEntity* entity);
 
-// }}}
 
 
 //const char * get_component_vhdl (XhdlEntity* entity);
 
 
-// {{{  const char* get_libs_vhdl (XhdlIp* ip);
 
 /*! \fn const char* get_libs_vhdl (XhdlIp* ip);
     \brief 
@@ -808,9 +671,7 @@ const char* get_entity_vhdl (XhdlEntity* entity);
 
 const char* get_libs_vhdl (XhdlIp* ip);
 
-// }}}
 
-// {{{  const char* get_entity_signal_vhdl (XhdlSignal* signal);
 
 /*! \fn const char* get_entity_signal_vhdl (XhdlSignal* signal);
     \brief 
@@ -819,9 +680,7 @@ const char* get_libs_vhdl (XhdlIp* ip);
 */
 const char* get_entity_signal_vhdl (XhdlSignal* signal);
 
-// }}}
 
-// {{{  const char* get_arch_vhdl (XhdlArch* arch);
 
 /*! \fn const char* get_arch_vhdl (XhdlIp *ip , XhdlArch* arch);
     \brief 
@@ -830,9 +689,7 @@ const char* get_entity_signal_vhdl (XhdlSignal* signal);
 */
 const char* get_arch_vhdl (XhdlIp *ip , XhdlArch* arch);
 
-// }}}
 
-// {{{  const char* get_arch_signal_vhdl (XhdlSignal* signal);
 
 /*! \fn const char* get_arch_signal_vhdl (XhdlSignal* signal);
     \brief 
@@ -841,9 +698,7 @@ const char* get_arch_vhdl (XhdlIp *ip , XhdlArch* arch);
 */
 const char* get_arch_signal_vhdl (XhdlSignal* signal);
 
-// }}}
 
-// {{{  const char* get_body_vhdl (XhdlBody* body);
 
 /*! \fn const char* get_body_vhdl (XhdlBody* body);
     \brief 
@@ -852,9 +707,7 @@ const char* get_arch_signal_vhdl (XhdlSignal* signal);
 */
 const char* get_body_vhdl (XhdlIp *ip , XhdlArch *arch , XhdlBody* body);
 
-// }}}
 
-// {{{  const char* get_static_assign_vhdl (XhdlStatic* stat);
 
 /*! \fn const char* get_static_assign_vhdl (XhdlStatic* stat);
     \brief 
@@ -863,9 +716,7 @@ const char* get_body_vhdl (XhdlIp *ip , XhdlArch *arch , XhdlBody* body);
 */
 const char* get_static_assign_vhdl (XhdlStatic* stat);
 
-// }}}
 
-// {{{  const char* get_affectation_vhdl (XhdlAffectation* aff);
 
 /*! \fn const char* get_affectation_vhdl (XhdlAffectation* aff);
     \brief 
@@ -874,9 +725,7 @@ const char* get_static_assign_vhdl (XhdlStatic* stat);
 */
 const char* get_affectation_vhdl (XhdlAffectation* aff);
 
-// }}}
 
-// {{{  const char * get_expression_vhdl (XhdlExpression* expr);
 
 /*! \fn const char * get_expression_vhdl (XhdlExpression* expr);
     \brief 
@@ -885,9 +734,7 @@ const char* get_affectation_vhdl (XhdlAffectation* aff);
 */
 const char * get_expression_vhdl (XhdlExpression* expr);
 
-// }}}
 
-// {{{  const char * get_cond_expression_vhdl (XhdlAffectation::cond_expr* cond_expression);
 
 /*! \fn const char * get_cond_expression_vhdl (XhdlAffectation::cond_expr* cond_expression);
     \brief 
@@ -896,9 +743,7 @@ const char * get_expression_vhdl (XhdlExpression* expr);
 */
 const char * get_cond_expression_vhdl (XhdlAffectation::cond_expr* cond_expression);
 
-// }}}
 
- // {{{ const char* get_instruction_vhdl ( xhdl_instruction *inst )
 /*! \fn const char * get_instruction_vhdl ( xhdl_instruction *inst);
     \brief 
     \param 
@@ -906,9 +751,7 @@ const char * get_cond_expression_vhdl (XhdlAffectation::cond_expr* cond_expressi
 */
 const char * get_instruction_vhdl (xhdl_instruction *inst);
 
-// }}}
 
- // {{{ const char* get_simple_instruction_vhdl ( xhdl_instruction *inst )
 /*! \fn const char * get_simple_instruction_vhdl ( xhdl_simple_instruction *inst);
     \brief 
     \param 
@@ -916,9 +759,7 @@ const char * get_instruction_vhdl (xhdl_instruction *inst);
 */
 const char * get_simple_instruction_vhdl (xhdl_simple_instruction *inst);
 
-// }}}
 
-// {{{  const char* get_portmap_vhdl (XhdlPortMap* portmap);
 
 
 /*! \fn const char* get_portmap_vhdl (XhdlPortMap* portmap);
@@ -928,9 +769,7 @@ const char * get_simple_instruction_vhdl (xhdl_simple_instruction *inst);
 */
 const char* get_portmap_vhdl (XhdlPortMap* portmap);
 
-// }}}
 
-// {{{  const char* get_process_vhdl ( XhdlProcess *process);
 
 /*! \fn const char* get_process_vhdl (XhdlProcess* process);
     \brief generate process vhdl
@@ -939,8 +778,6 @@ const char* get_portmap_vhdl (XhdlPortMap* portmap);
 */
 const char* get_process_vhdl (XhdlProcess *process);
 
-// }}}
-// {{{  const char* get_sync_process_vhdl ( XhdlArch *arch );
 
 /*! \fn const char* get_sync_process_vhdl ( XhdlArch *arch );
     \brief generate synchronisation process vhdl
@@ -949,9 +786,7 @@ const char* get_process_vhdl (XhdlProcess *process);
 */
 const char* get_sync_process_vhdl (XhdlIp *ip , XhdlArch *arch);
 
-// }}}
 
-// {{{  const char* custom_print (const char* x);
 
 /*! \fn const char* custom_print (const char* x);
     \brief 
@@ -960,9 +795,7 @@ const char* get_sync_process_vhdl (XhdlIp *ip , XhdlArch *arch);
 */
 const char* custom_print (const char* x);
 
-// }}}
 
-// {{{  const char* show_args (const char* fmt, ...);
 
 /*! \fn const char* show_args (const char* fmt, ...);
     \brief 
@@ -971,6 +804,5 @@ const char* custom_print (const char* x);
 */
 const char* show_args (const char* fmt, ...);
 
-// }}}
 
 #endif
