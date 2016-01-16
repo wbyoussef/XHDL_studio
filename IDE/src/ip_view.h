@@ -8,6 +8,8 @@ namespace Ui {
     class IP_View;
 }
 
+#include "qentityscene.h"
+
 class IP_View : public QWidget {
     Q_OBJECT
 public:
@@ -18,8 +20,18 @@ public:
     QGraphicsView *getIPView() const;
     void setIPView(QGraphicsView *value);
 
+    QEntityScene *getScene() const;
+    void setScene(QEntityScene *value);
+
+    XhdlIp *getIp() const;
+    void setIp(XhdlIp *value);
+    void blankIp();
+    bool open_xml_file (QString  filename);
+
 private :
     QGraphicsView *IPView;
+    QEntityScene *scene;
+    XhdlIp* ip;
 
 
 protected:

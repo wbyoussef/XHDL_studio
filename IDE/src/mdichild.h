@@ -56,7 +56,7 @@ class MdiChild : public IP_View
 
 public:
     MdiChild();
-    XhdlIp* main_ip;
+    XhdlIp* CHILD_main_ip;
     void newFile();
     bool loadFile(const QString &fileName);
     bool save();
