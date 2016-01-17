@@ -10,8 +10,8 @@ QSceneBasicElement::QSceneBasicElement( QEntityScene *entity_scene, XhdlIp *ip)
 {
     entity_scene->addItem(this);
     // test purpose rectangle
-    QGraphicsRectItem *border_widget = this->scene()->addRect(QRect(10,33,33,55) );
-    this->addToGroup(border_widget);
+    //QGraphicsRectItem *border_widget = this->scene()->addRect(QRect(10,33,3,5) );
+    //this->addToGroup(border_widget);
 
     this->set_ip(ip);
 

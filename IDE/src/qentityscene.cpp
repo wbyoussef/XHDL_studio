@@ -3,7 +3,7 @@
 #include <QGraphicsTextItem>
 #include <QGraphicsScene>
 #include <QGraphicsItemGroup>
-
+#include <qpainter.h>
 
 #include "qentityscene.h"
 #include "ninja_apis.h"
@@ -28,9 +28,9 @@ QEntityScene::QEntityScene(XhdlIp *ip)
 void QEntityScene::draw_scene ()
 {
     draw_ip_name ();
-    draw_body ();
-    draw_inputs ();
-    draw_outputs ();
+   // draw_body ();
+//    draw_inputs ();
+//    draw_outputs ();
 }
 
 
@@ -38,7 +38,7 @@ void QEntityScene::draw_scene ()
 void QEntityScene::draw_ip_name ()
 {
 
-    this->label = new QEntityScene_label(this->addText(ip->get_ip_name()),this);
+    this->label = new QEntityScene_label(this,ip->get_ip_name());
 
 }
 
@@ -89,4 +89,22 @@ void QEntityScene::place_inouts()
 
 
 
+void QEntityScene::drawBackground(QPainter *painter, const QRectF &rect)
+{
+    const int gridSize = 25;
 
+    qreal left = int(rect.left()) - (int(rect.left()) % gridSize);
+    qreal top = int(rect.top()) - (int(rect.top()) % gridSize);
+
+    QVarLengthArray<QLineF, 100> lines;
+
+    for (qreal x = left; x < rect.right(); x += gridSize)
+        lines.append(QLineF(x, rect.top(), x, rect.bottom()));
+    for (qreal y = top; y < rect.bottom(); y += gridSize)
+        lines.append(QLineF(rect.left(), y, rect.right(), y));
+
+    //Debug() << lines.size();
+    painter->setBrush(Qt::Dense7Pattern);
+    painter->setPen(Qt::DotLine);
+    painter->drawLines(lines.data(), lines.size());
+}

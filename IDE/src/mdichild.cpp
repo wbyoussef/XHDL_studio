@@ -69,7 +69,7 @@ bool MdiChild::loadFile(const QString &fileName)
     this->open_xml_file(fileName);
     // fill scenes
     this->entity_scene = new QEntityScene (this->getIp());
-    (this->getIPView())->setScene(entity_scene);
+    this->setScene(entity_scene);
     fill_description();
     return true;
 

@@ -28,6 +28,7 @@ public:
     void blankIp();
     bool open_xml_file (QString  filename);
 
+
 private :
     QGraphicsView *IPView;
     QEntityScene *scene;

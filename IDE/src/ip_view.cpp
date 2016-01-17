@@ -44,6 +44,7 @@ QEntityScene *IP_View::getScene() const
 
 void IP_View::setScene(QEntityScene *value)
 {
+    this->IPView->setScene(value);
     scene = value;
 }
 XhdlIp *IP_View::getIp() const
@@ -74,6 +75,7 @@ bool IP_View::open_xml_file(QString filename)
     ip_open_xml_file (this->ip , (filename.toLatin1 ()).data());
 
 }
+
 
 
 

@@ -21,6 +21,7 @@ public:
     QEntityScene(XhdlIp *ip);
     void draw_scene ();
     XhdlIp *ip;
+    void drawBackground(QPainter *painter, const QRectF &rect);
 
 private :
     QEntityScene_label* label;
@@ -38,8 +39,8 @@ private :
     /////////////////////////////
 
     // List of Inout widegts
-    QList<QScene_inout*> input_list;
-    QList<QScene_inout*> output_list;
+    QVector<QScene_inout*> input_list;
+    QVector<QScene_inout*> output_list;
 
     // Body Widget
     QScene_body *Scene_body ;

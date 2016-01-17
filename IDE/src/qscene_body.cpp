@@ -40,5 +40,5 @@ QScene_body ::QScene_body (QEntityScene *entity_scene)
 
 void QScene_body ::mousePressEvent ( QGraphicsSceneMouseEvent * event )
 {
-    exit (0);
+    // exit (0);
 }
