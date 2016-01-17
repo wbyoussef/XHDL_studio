@@ -34,9 +34,10 @@ QEntityScene_label::QEntityScene_label(QGraphicsTextItem *mother_item,
 QEntityScene_label::QEntityScene_label(QEntityScene *entity_scene, QString label)
     : QSceneBasicElement (entity_scene,ip)
 {
-    QGraphicsRectItem *border_widget = this->scene()->addRect(QRect(20,20,240,40) );
-    border_widget->setPen(QPen (Qt::red, 3, Qt::DashDotLine, Qt::RoundCap, Qt::RoundJoin));
-   // QGraphicsTextItem *label_item = new QGraphicsTextItem(label);
+    QGraphicsTextItem *border_widget = this->scene()->addText(label);
+//    border_widget->setPen(QPen (Qt::red, 3, Qt::DashDotLine, Qt::RoundCap, Qt::RoundJoin));
+    QGraphicsTextItem *label_item = new QGraphicsTextItem(label ,border_widget);
+    label_item->moveBy(20,20);
 
     // Group Widgets
     this->addToGroup(border_widget);

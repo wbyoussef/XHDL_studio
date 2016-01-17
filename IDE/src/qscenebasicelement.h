@@ -36,11 +36,14 @@ public:
 
     void set_ip (XhdlIp *ip);
     XhdlIp *ip;
-
+protected:
+    QVariant itemChange(GraphicsItemChange change,
+                        const QVariant &value);
 private :
         QColor border_color;
         QColor fill_color;
         element_type type;
+        QEntityScene *entity_scene;
 
 };
 

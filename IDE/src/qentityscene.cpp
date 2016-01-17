@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsItemGroup>
 #include <qpainter.h>
+#include <qdebug.h>
 
 #include "qentityscene.h"
 #include "ninja_apis.h"
@@ -22,13 +23,14 @@ QEntityScene::QEntityScene(XhdlIp *ip)
 
     this->inputs_cnt = xhdl_get_inputs_cnt(ip);
     this->outputs_cnt = xhdl_get_outputs_cnt(ip);
+    this->setGridStep(25);
 }
 
 
 void QEntityScene::draw_scene ()
 {
     draw_ip_name ();
-   // draw_body ();
+    draw_body ();
 //    draw_inputs ();
 //    draw_outputs ();
 }
@@ -91,20 +93,60 @@ void QEntityScene::place_inouts()
 
 void QEntityScene::drawBackground(QPainter *painter, const QRectF &rect)
 {
-    const int gridSize = 25;
+    this->drawDotsBackground(painter,rect);
+}
+
+void QEntityScene::drawMarksBackground(QPainter *painter, const QRectF &rect)
+{
+    const int gridSize = this->getGridStep();
 
     qreal left = int(rect.left()) - (int(rect.left()) % gridSize);
     qreal top = int(rect.top()) - (int(rect.top()) % gridSize);
 
     QVarLengthArray<QLineF, 100> lines;
 
-    for (qreal x = left; x < rect.right(); x += gridSize)
+    for (qreal x = rect.left()+2; x < rect.right(); x += gridSize)
         lines.append(QLineF(x, rect.top(), x, rect.bottom()));
-    for (qreal y = top; y < rect.bottom(); y += gridSize)
+    for (qreal y = rect.top()+2; y < rect.bottom(); y += gridSize)
         lines.append(QLineF(rect.left(), y, rect.right(), y));
 
-    //Debug() << lines.size();
     painter->setBrush(Qt::Dense7Pattern);
-    painter->setPen(Qt::DotLine);
+    QPen pen;
+    QVector<qreal> dashes;
+    qreal space = 20;
+
+    dashes << 5 << space ;
+    pen.setDashPattern(dashes);
+    pen.setColor(Qt::gray);
+    painter->setPen(pen);
+//    painter->setPen(Qt::DotLine);
     painter->drawLines(lines.data(), lines.size());
+
+}
+
+void QEntityScene::drawDotsBackground(QPainter *painter, const QRectF &rect)
+{
+    const int gridSize = this->getGridStep();
+    QPen pen;
+    painter->setPen(pen);
+
+    qreal left = int(rect.left()) - (int(rect.left()) % gridSize);
+    qreal top = int(rect.top()) - (int(rect.top()) % gridSize);
+    QVector<QPointF> points;
+    for (qreal x = left; x < rect.right(); x += gridSize){
+        for (qreal y = top; y < rect.bottom(); y += gridSize){
+            points.append(QPointF(x,y));
+        }
+    }
+    painter->drawPoints(points.data(), points.size());
+}
+
+int QEntityScene::getGridStep() const
+{
+    return GridStep;
+}
+
+void QEntityScene::setGridStep(int value)
+{
+    GridStep = value;
 }

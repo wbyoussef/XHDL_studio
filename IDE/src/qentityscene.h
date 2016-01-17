@@ -22,8 +22,14 @@ public:
     void draw_scene ();
     XhdlIp *ip;
     void drawBackground(QPainter *painter, const QRectF &rect);
+    void drawMarksBackground(QPainter *painter, const QRectF &rect);
+    void drawDotsBackground(QPainter *painter, const QRectF &rect);
+
+    int getGridStep() const;
+    void setGridStep(int value);
 
 private :
+    int GridStep;
     QEntityScene_label* label;
     void draw_ip_name ();
     void draw_body ();
