@@ -41,6 +41,9 @@
 
 #include <QtWidgets>
 #include <QGraphicsScene>
+#include <fstream>
+#include <string>
+#include <iostream>
 
 #include "mdichild.h"
 
@@ -73,6 +76,9 @@ bool MdiChild::loadFile(const QString &fileName)
     this->entity_scene = new QEntityScene (this->getIp());
     this->setScene(entity_scene);
     fill_description();
+    setCurrentFile(fileName);
+    setWindowFilePath(curFile);
+
     return true;
 
 }
@@ -98,6 +104,10 @@ bool MdiChild::saveAs()
 
 bool MdiChild::saveFile(const QString &fileName)
 {
+    std::string out_xml = ip_gen_xml (this->getIp());
+    std::ofstream out(fileName.toLatin1().data());
+    out << out_xml;
+    out.close();
 }
 
 bool MdiChild::fill_description()
@@ -191,12 +201,11 @@ bool MdiChild::maybeSave()
 }
 
 void MdiChild::setCurrentFile(const QString &fileName)
-{ /*
+{
     curFile = QFileInfo(fileName).canonicalFilePath();
     isUntitled = false;
-    document()->setModified(false);
     setWindowModified(false);
-    setWindowTitle(userFriendlyCurrentFile() + "[*]"); */
+    setWindowTitle(this->getIp()->get_ip_name());
 }
 
 QString MdiChild::strippedName(const QString &fullFileName)

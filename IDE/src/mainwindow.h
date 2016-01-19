@@ -132,7 +132,7 @@ private:
     void updateRecentFileActions();
 
     //! Current file name
-    QString curFile;
+    // QString curFile;
 
 
 private:

@@ -122,8 +122,6 @@ void MainWindow::loadFile(QString filename)
 }
 void MainWindow::setCurrentFile(const QString &filename)
 {
-    curFile = filename;
-    setWindowFilePath(curFile);
 
     QSettings settings;
     QStringList files = settings.value("recentFileList").toStringList();
