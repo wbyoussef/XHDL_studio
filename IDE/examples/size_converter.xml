@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE IP SYSTEM "dtd.dtd">
+<IP>
+  <documentation/>
+  <version/>
+  <entity name="CPU_size_converter">
+    <list_params>
+      <param>enable_retiming</param>
+      <param>fifo_size</param>
+    </list_params>
+    <list_bus>
+      <signal name="In1">
+        <direction>IN</direction>
+        <high_val>0</high_val>
+        <low_val>0</low_val>
+        <is_bit>TRUE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+      <signal name="Out1">
+        <direction>OUT</direction>
+        <high_val>0</high_val>
+        <low_val>0</low_val>
+        <is_bit>TRUE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+      <signal name="Out2">
+        <direction>OUT</direction>
+        <high_val>0</high_val>
+        <low_val>0</low_val>
+        <is_bit>TRUE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+      <signal name="In2">
+        <direction>IN</direction>
+        <high_val>0</high_val>
+        <low_val>0</low_val>
+        <is_bit>TRUE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+      <signal name="CPU_req">
+        <direction>IN</direction>
+        <high_val>0</high_val>
+        <low_val>0</low_val>
+        <is_bit>TRUE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+      <signal name="CPU_ack">
+        <direction>OUT</direction>
+        <high_val>0</high_val>
+        <low_val>0</low_val>
+        <is_bit>TRUE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+      <signal name="CPU_data">
+        <direction>IN</direction>
+        <high_val>0</high_val>
+        <low_val>63</low_val>
+        <is_bit>FALSE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+      <signal name="CPU_addr">
+        <direction>IN</direction>
+        <high_val>0</high_val>
+        <low_val>63</low_val>
+        <is_bit>FALSE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+      <signal name="CPU_be">
+        <direction>IN</direction>
+        <high_val>0</high_val>
+        <low_val>7</low_val>
+        <is_bit>FALSE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+
+      <signal name="BUS_req">
+        <direction>OUT</direction>
+        <high_val>0</high_val>
+        <low_val>0</low_val>
+        <is_bit>TRUE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+      <signal name="BUS_ack">
+        <direction>IN</direction>
+        <high_val>0</high_val>
+        <low_val>0</low_val>
+        <is_bit>TRUE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+      <signal name="BUS_data">
+        <direction>OUT</direction>
+        <high_val>0</high_val>
+        <low_val>63</low_val>
+        <is_bit>FALSE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+      <signal name="BUS_addr">
+        <direction>OUT</direction>
+        <high_val>0</high_val>
+        <low_val>63</low_val>
+        <is_bit>FALSE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+      <signal name="BUS_be">
+        <direction>OUT</direction>
+        <high_val>0</high_val>
+        <low_val>7</low_val>
+        <is_bit>FALSE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>FALSE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+
+      <signal name="MyClock">
+        <direction>IN</direction>
+        <high_val>0</high_val>
+        <low_val>0</low_val>
+        <is_bit>TRUE</is_bit>
+        <is_reset>FALSE</is_reset>
+        <is_clock>TRUE</is_clock>
+        <initial_val/>
+        <is_flipflop>FALSE</is_flipflop>
+        <reference/>
+        <comment>N/A</comment>
+      </signal>
+    </list_bus>
+  </entity>
+  <package name="default_ip_name">
+    <list_bus/>
+  </package>
+  <list_arch>
+    <arch name="rtl">
+      <type/>
+      <list_enumtype/>
+      <list_bus/>
+      <body>
+        <list_maps/>
+        <list_stat/>
+        <list_process/>
+        <list_plain/>
+      </body>
+    </arch>
+  </list_arch>
+  <project_man/>
+</IP>
