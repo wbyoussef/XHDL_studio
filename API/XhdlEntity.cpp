@@ -6,6 +6,7 @@
 XhdlEntity::XhdlEntity()
 {
   name="";
+  clk = NULL;
   this->setCLASS_TAG("XhdlEntity");
 }
 
@@ -13,6 +14,7 @@ XhdlEntity::XhdlEntity()
 XhdlEntity::XhdlEntity(XhdlIp* ip)
 {
   parent = ip; 
+  clk = NULL;
   this->setCLASS_TAG("XhdlEntity");
 }
 

@@ -11,7 +11,7 @@ IP_View::IP_View(QWidget *parent) :
     m_ui(new Ui::IP_View)
 {
     m_ui->setupUi(this);
-    //this->showMaximized () ;
+    this->showMaximized () ;
     // this->setGeometry(this->parent()->rect());
     IPView = new QGraphicsView (this);
     //IPView->setGeometry(this->rect());

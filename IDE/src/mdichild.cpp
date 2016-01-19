@@ -61,6 +61,8 @@ void MdiChild::newFile()
     this->blankIp();
     this->entity_scene = new QEntityScene (this->getIp());
     (this->getIPView())->setScene(entity_scene);
+    this->setScene(entity_scene);
+    fill_description();
 }
 
 bool MdiChild::loadFile(const QString &fileName)
@@ -129,10 +131,12 @@ bool MdiChild::fill_description()
 
     XS_QTreeWidgetItem* item_clocks = new XS_QTreeWidgetItem("",XHDL::XHDL_NONE);
     item_clocks->setText(0,"clocks");
-    XS_QTreeWidgetItem* item_clock = new XS_QTreeWidgetItem((this->getIp())->entity->clk->getFull_name().c_str(),XHDL::XHDL_CLOCK);
-    item_clock->setText(0,(this->getIp())->entity->clk->name.c_str());
-    item_clocks->addChild(item_clock);
-
+    XhdlSignal* clk = (this->getIp())->entity->clk;
+    if (!(clk == NULL ))  {
+        XS_QTreeWidgetItem* item_clock = new XS_QTreeWidgetItem((this->getIp())->entity->clk->getFull_name().c_str(),XHDL::XHDL_CLOCK);
+        item_clock->setText(0,(this->getIp())->entity->clk->name.c_str());
+        item_clocks->addChild(item_clock);
+    }
 
 
     XS_QTreeWidgetItem* item_archs = new XS_QTreeWidgetItem("",XHDL::XHDL_NONE);
