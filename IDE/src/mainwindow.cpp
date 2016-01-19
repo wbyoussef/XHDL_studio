@@ -93,6 +93,7 @@ void MainWindow::newFile()
 
 void MainWindow::open()
 {
+    //! file is already opened, do not open it
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "./", tr("IP (*.xml)"));
     if (!fileName.isEmpty()) {
         QMdiSubWindow *existing = findMdiChild(fileName);
@@ -101,13 +102,42 @@ void MainWindow::open()
             return;
         }
 
-        MdiChild *child = createMdiChild();
-        if (child->loadFile(fileName)) {
-            statusBar()->showMessage(tr("File loaded"), 2000);
-            child->show();
-        } else {
-            child->close();
-        }
+        this->loadFile(fileName);
+    }
+}
+
+void MainWindow::loadFile(QString filename)
+{
+    MdiChild *child = createMdiChild();
+    if (child->loadFile(filename)) {
+        statusBar()->showMessage(tr("File loaded"), 2000);
+        child->show();
+    } else {
+        child->close();
+        return ;
+    }
+
+    //! if everything is OK, update recent files
+    this->setCurrentFile(filename);
+}
+void MainWindow::setCurrentFile(const QString &filename)
+{
+    curFile = filename;
+    setWindowFilePath(curFile);
+
+    QSettings settings;
+    QStringList files = settings.value("recentFileList").toStringList();
+    files.removeAll(filename);
+    files.prepend(filename);
+    while (files.size() > MaxRecentFiles)
+        files.removeLast();
+
+    settings.setValue("recentFileList", files);
+
+    foreach (QWidget *widget, QApplication::topLevelWidgets()) {
+        MainWindow *mainWin = qobject_cast<MainWindow *>(widget);
+        if (mainWin)
+            mainWin->updateRecentFileActions();
     }
 }
 
@@ -286,6 +316,14 @@ void MainWindow::createActions()
     aboutQtAct = new QAction(tr("About &Qt"), this);
     aboutQtAct->setStatusTip(tr("Show the Qt library's About box"));
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+
+    //! Create action for recent files
+    for (int i = 0; i < MaxRecentFiles; ++i) {
+        recentFileActs[i] = new QAction(this);
+        recentFileActs[i]->setVisible(false);
+        connect(recentFileActs[i], SIGNAL(triggered()),
+                this, SLOT(openRecentFile()));
+    }
 }
 
 void MainWindow::createMenus()
@@ -295,7 +333,14 @@ void MainWindow::createMenus()
     fileMenu->addAction(openAct);
     fileMenu->addAction(saveAct);
     fileMenu->addAction(saveAsAct);
+
+    //! Add recent files
+    separatorAct = fileMenu->addSeparator();
+    for (int i = 0; i < MaxRecentFiles; ++i)
+        fileMenu->addAction(recentFileActs[i]);
     fileMenu->addSeparator();
+    updateRecentFileActions();
+
     QAction *action = fileMenu->addAction(tr("Switch layout direction"));
     connect(action, SIGNAL(triggered()), this, SLOT(switchLayoutDirection()));
     fileMenu->addAction(exitAct);
@@ -390,4 +435,40 @@ void MainWindow::setActiveSubWindow(QWidget *window)
 QToolBar *MainWindow::GetChildToolBar ()
 {
 
+}
+
+
+void MainWindow::openRecentFile()
+{
+    QAction *action = qobject_cast<QAction *>(sender());
+    if (action)
+        loadFile(action->data().toString());
+}
+
+
+void MainWindow::updateRecentFileActions() {
+
+    //! Get recent files from settings
+    QSettings settings;
+    QStringList files = settings.value("recentFileList").toStringList();
+
+    int numRecentFiles = qMin(files.size(), (int)MaxRecentFiles);
+
+    for (int i = 0; i < numRecentFiles; ++i) {
+        QString text = tr("&%1 %2").arg(i + 1).arg(strippedName(files[i]));
+        recentFileActs[i]->setText(text);
+        recentFileActs[i]->setData(files[i]);
+        recentFileActs[i]->setVisible(true);
+    }
+    for (int j = numRecentFiles; j < MaxRecentFiles; ++j)
+        recentFileActs[j]->setVisible(false);
+
+    separatorAct->setVisible(numRecentFiles > 0);
+}
+
+
+
+QString MainWindow::strippedName(const QString &fullFileName)
+{
+    return QFileInfo(fullFileName).fileName();
 }

@@ -72,6 +72,7 @@ protected:
 private slots:
     void newFile();
     void open();
+    void loadFile(QString filename);
     void save();
     void saveAs();
     void cut();
@@ -83,6 +84,7 @@ private slots:
     MdiChild *createMdiChild();
     void switchLayoutDirection();
     void setActiveSubWindow(QWidget *window);
+    void openRecentFile();
 
 private:
     void createActions();
@@ -93,6 +95,7 @@ private:
     void writeSettings();
     MdiChild *activeMdiChild();
     QMdiSubWindow *findMdiChild(const QString &fileName);
+
 
     QMdiArea *mdiArea;
     QSignalMapper *windowMapper;
@@ -122,9 +125,20 @@ private:
     QAction *aboutAct;
     QAction *aboutQtAct;
 
+    //! recent files place holder
+    enum { MaxRecentFiles = 5 };
+    QAction *recentFileActs[MaxRecentFiles];
+    void setCurrentFile(const QString &fileName);
+    void updateRecentFileActions();
+
+    //! Current file name
+    QString curFile;
+
+
 private:
     Ui::MainWindow *ui;
 
+    QString strippedName(const QString &fullFileName);
 };
 
 #endif
